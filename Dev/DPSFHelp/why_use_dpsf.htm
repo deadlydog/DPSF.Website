@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>Why use DPSF</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?why_use_dpsf.htm"; }
+  else { parent.quicksync('a1.2'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Why use DPSF</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction.htm">Top</a>&nbsp;
+     <a href="what_is_dpsf.htm">Previous</a>&nbsp;
+     <a href="features.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>DPSF allows custom particle systems to be implemented quickly and easily. &nbsp;This is done by providing common particle system functionality, such as the updating, drawing, and emitting of particles, while still allowing you to specify custom particle and particle system properties, and define how these properties should affect the particles and particle system. &nbsp;That is, it allows you to bypass the typical stages of designing a particle system, such as how to keep track of the particles in memory and how to draw them, and to move straight into the process of designing how the particle system and its particles should behave to achieve the desired effect.</p>
+<p>&nbsp;</p>
+<p>The primary goal of DPSF is to remain flexible enough to allow you to have full control over your particle systems and their particles at all times. &nbsp;You should be able to create whatever type of effect you desire, whether it is something simple such as creating a small gas cloud, or something complex such as creating a physics-accurate fluid flow simulation that reacts to external environmental forces. &nbsp;This is accomplished through the use of <a href="events.htm">Events</a>.  <a href="events.htm">Events</a> allow you to write functions, then specify which functions should be executed, and when they should be executed, giving you complete control over your particle system and its particles. &nbsp;For example, if you want the particles to change their velocity when they are half way into their lifetime, this can easily be accomplished by using <a href="types_of_events.htm">Timed Events</a>.</p>
+<p>&nbsp;</p>
+<p>In addition to providing the typical particle system functionality, additional tools and functions are provided as well to help speed up the process of creating particle systems. &nbsp;For example, all particle systems have a built-in Emitter that has a 3D position and orientation, and easily allows you to specify how many particles you would like the particle system to emit per second. &nbsp;Emitters can also be given a velocity and acceleration, as well as a rotational velocity and acceleration, to simulate the particle system moving and rotating.  <a href="creating_a_new_particle_system_from_a_template.htm">Templates</a> and <a href="creating_new_particle_systems_from_defaults.htm">default classes</a> are also provided to make creating typical particle system effects even faster. &nbsp;These classes include support for things such as velocity and acceleration, rotational velocity and rotational acceleration, start and end colors, start and end sizes, external forces such as gravity, and other forces that may attract or repel particles (i.e. Magnets).</p>
+<p>&nbsp;</p>
+<p>Because a DPSF particle system is typically contained within one file, this makes it easy for you to distribute your particle system to other people using DPSF, and to incorporate their particle systems into your own projects. &nbsp;Just add their particle class file to your project and create an instance of the particle system.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

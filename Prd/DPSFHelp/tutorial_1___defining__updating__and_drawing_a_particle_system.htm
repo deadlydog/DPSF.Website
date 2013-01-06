@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>Tutorial 1 - Defining, Updating, and Drawing a Particle System</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?tutorial_1___defining__updating__and_drawing_a_particle_system.htm"; }
+  else { parent.quicksync('a12.2'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Tutorial 1 - Defining, Updating, and Drawing a Particle System</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction.htm">Top</a>&nbsp;
+     <a href="tutorial_0___referencing_dpsf_dll_in_your_project.htm">Previous</a>&nbsp;
+     <a href="tutorial_2___particle_initialization_function.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>In this tutorial we will create, update, draw, and destroy a particle system created from the default textured quad particle system <a href="creating_a_new_particle_system_from_a_template.htm#templates">template</a> provided by DPSF.</p>
+<p>&nbsp;</p>
+<p>Load the Tutorial 1 project and open up Game1.cs. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Setup</span></p>
+<p>&nbsp;</p>
+<p>Once you have <a href="tutorial_0___referencing_dpsf_dll_in_your_project.htm">referenced DPSF.dll in your XNA project (Tutorial 0)</a> you are ready to start using DPSF.</p>
+<p>&nbsp;</p>
+<p>DPSF provides particle system <a href="creating_a_new_particle_system_from_a_template.htm#templates">templates</a> to help make creating new particle systems easier, so the first thing we want to do is get the Default Textured Quad Particle System Template included in our project. &nbsp;To do this, copy the <span style="font-weight: bold;">DefaultTexturedQuadParticleSystemTemplate.cs</span> file from the Templates directory and paste it into your project's directory, and then include it in your project. &nbsp;If you don't know how to do this yet, <a href="creating_a_new_particle_system_from_a_template.htm#gettingnewparticlesystemintoyourproject">check out the detailed instructions</a>. &nbsp;The template class by default is going to look for "Textures/Star9" as the image to use for the particles, so you will also need to create a Textures folder in the project's Content folder and import Star9.png into it. &nbsp;If you want to use a different image simply replace <span style="font-family: 'Courier New'; color: #a31515;">"Textures/Star9"</span> in DefaultTexturedQuadParticleSystemTemplate.cs's AutoInitialize() function with the asset name of the image that you want to use.</p>
+<p>&nbsp;</p>
+<p>Now that we have a particle system class defined (in the template we just included in our project) we can create an instance of it and start drawing it to the screen. &nbsp;Before we do that though there is one more thing we want to do, which is include the DPSF namespace so that we don't have to put <span style="font-weight: bold;">DPSF.</span> in front of all of the DPSF classes and functions. &nbsp;So near the top of your Game1.cs file (or whatever your main file is called) we want to add the following, below the rest of the <span style="font-weight: bold;">using</span> statements:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">using</span><span style="font-family: 'Courier New';"> DPSF;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">using</span><span style="font-family: 'Courier New';"> DPSF.ParticleSystems;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';">We include DPSF.ParticleSystems as well because the template files define the particle systems to be in the DPSF.ParticleSystems namespace.</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Defining a new particle system</span></p>
+<p>&nbsp;</p>
+<p>The name of the particle system class in the template file is <span style="font-weight: bold;">DefaultTexturedQuadParticleSystemTemplate</span> (unless you have changed it as mentioned in the <a href="creating_a_new_particle_system_from_a_template.htm#gettingnewparticlesystemintoyourproject">template instructions</a>, in which case use that class name), so to define a variable to hold the particle system we give the Game1 class the following variable:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #2b91af;">DefaultTexturedQuadParticleSystemTemplate</span><span style="font-family: 'Courier New';"> mcParticleSystem = </span><span style="font-family: 'Courier New'; color: #0000ff;">null</span><span style="font-family: 'Courier New';">;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Initializing the particle system</span></p>
+<p>&nbsp;</p>
+<p>To create an instance of the the particle system add the following code to the Game classes <span style="font-weight: bold;">LoadContent()</span> function:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #2b91af;">DefaultTexturedQuadParticleSystemTemplate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; color: #0000ff;">this</span><span style="font-family: 'Courier New';">);</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Consolas';">mcParticleSystem.AutoInitialize(</span><span style="font-family: 'Consolas'; color: #0000ff;">this</span><span style="font-family: 'Consolas';">.GraphicsDevice, </span><span style="font-family: 'Consolas'; color: #0000ff;">this</span><span style="font-family: 'Consolas';">.Content, </span><span style="font-family: 'Consolas'; color: #0000ff;">null</span><span style="font-family: 'Consolas';">);</span></p>
+<p>&nbsp;</p>
+<p>Here we create an instance of the particle system, and then call <span style="font-weight: bold;">AutoInitialize()</span> to set it up so that it is ready to use.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Destroying the particle system</span></p>
+<p>&nbsp;</p>
+<p>When we exit the game we want the particle system to be destroyed, so add the following code to the Game classes <span style="font-weight: bold;">UnloadContent()</span> function:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem.Destroy();</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Updating the particle system</span></p>
+<p>&nbsp;</p>
+<p>Before drawing the particle system we must specify the World, View, and Projection matrices so that the particle system knows where on-screen to draw the particles. &nbsp;Because these typically are not going to change between updates, we can set them here in the Game class's Update() function rather than in the Draw() function, as the Draw() function typically gets called much more often than the Update() function.</p>
+<p>&nbsp;</p>
+<p>Some particle systems need to know where the camera is before updating their particles, as they may rotate the particles to face the camera, so we also need to call the particle system's <span style="font-weight: bold;">SetCameraPosition()</span> function before updating the particle system.</p>
+<p>&nbsp;</p>
+<p>Then to update the particles in the particle system we need to call the particle system's <span style="font-weight: bold;">Update()</span> function. &nbsp;So in the Game class's <span style="font-weight: bold;">Update()</span> function add:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem.SetWorldViewProjectionMatrices(</span><span style="font-family: 'Courier New'; color: #2b91af;">Matrix</span><span style="font-family: 'Courier New';">.Identity, sViewMatrix, sProjectionMatrix);</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Consolas';">mcParticleSystem.SetCameraPosition(cameraPosition);</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem.Update((</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';">)gameTime.ElapsedGameTime.TotalSeconds);</span></p>
+<p>&nbsp;</p>
+<p>where Matrix.Identity, sViewMatrix, and sProjectionMatrix are the World, View, and Projection matrices respectfully, and cameraPosition is the current position of the camera.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Drawing the particle system</span></p>
+<p>&nbsp;</p>
+<p>To actually draw the particle system, in the Game classes <span style="font-weight: bold;">Draw()</span> function add:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem.Draw();</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Remarks</span></p>
+<p>&nbsp;</p>
+<p>When you run the Tutorial 1 source code you should see the particle system emitting stars upward.</p>
+<p>&nbsp;</p>
+<p>You can also <a href="defining__updating__and_drawing_a_particle_system.htm">check out more detailed information on Defining, Initializing, Destroying, Updating, and Drawing particle systems</a>, as well as how to use a <span style="font-weight: bold;">Particle System Manager</span> to manage multiple particle systems. &nbsp;The Particle System Manager provides equivalents of the particle system functions shown in this tutorial that affect all of the particle systems in the particle system manager. &nbsp;This allows you to simply call these functions on the particle system manager, rather than having to loop through and call them on each individual particle system.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

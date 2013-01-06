@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>Integrating DPSF Into Your XNA Project</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?integrating_dpsf_into_your_xna_project.htm"; }
+  else { parent.quicksync('a7.2'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Integrating DPSF Into Your XNA Project</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction.htm">Top</a>&nbsp;
+     <a href="inherit_from_drawablegamecomponent.htm">Previous</a>&nbsp;
+     <a href="creating_a_new_particle_system_from_a_template.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>DPSF is packaged as a dll (dynamic link library) that you must add as a reference into your project. &nbsp;The first thing to do is decide if you want your particle systems to <a href="inherit_from_drawablegamecomponent.htm">inherit from the Microsoft.XNA.Framework.DrawableGameComponent class or not</a>, as this will affect which dll file you want to import.</p>
+<p>&nbsp;</p>
+<p>In Visual Studio 2008, you can then add a reference to the dll file by clicking on the <span style="font-weight: bold;">Project</span> menu item and selecting <span style="font-weight: bold;">Add Reference</span> (or by right-clicking on <span style="font-weight: bold;">References</span> in the Solution Explorer and choosing <span style="font-weight: bold;">Add Reference...</span>).</p>
+<p>&nbsp;</p>
+<p><img src="addreference.png" width="550" height="512" border="0" alt="AddReference"><span class="f_ImageCaption" style="font-size: 18pt; font-weight: normal;"> &nbsp; </span><span class="f_ImageCaption" style="font-size: 18pt;">OR</span><span class="f_ImageCaption" style="font-size: 18pt; font-weight: normal;"> &nbsp; </span><img src="addreference2.png" width="339" height="220" border="0" alt="AddReference2"></p>
+<p>&nbsp;</p>
+<p>From here you need to select the <span style="font-weight: bold;">Browse</span> tab and navigate to the <span style="font-weight: bold;">DPSF.dll</span> or <span style="font-weight: bold;">DPSFAsDrawableGameComponent.dll</span> file (for Xbox 360 projects use their equivalents <span style="font-weight: bold;">DPSFXbox360.dll</span> and <span style="font-weight: bold;">DPSFXbox360AsDrawableGameComponent.dll</span>, or the Windows Phone equivalents <span style="font-weight: bold;">DPSFPhone.dll</span> and <span style="font-weight: bold;">DPSFPhoneDrawableGameComponent.dll</span>) and select OK (you should only reference one of these dll files in your project). &nbsp;The default location of these dll files is "<span style="font-weight: bold;">C:\DPSF"</span>.</p>
+<p>&nbsp;</p>
+<p><img src="addreferenceok.png" width="467" height="390" border="0" alt="AddReferenceOK"></p>
+<p>&nbsp;</p>
+<p>Once this is done DPSF should show up in your project's References.</p>
+<p>&nbsp;</p>
+<p><img src="reference.png" width="344" height="344" border="0" alt="Reference"></p>
+<p>&nbsp;</p>
+<p>You should then be able to access all of the classes and functions in the DPSF namespace by typing<span style="font-weight: bold;"> DPSF.</span>ClassName, allowing you to create new DPSF particle systems.  </p>
+<p>&nbsp;</p>
+<p><img src="dpsfnamespace.png" width="775" height="295" border="0" alt="DPSFNamespace"></p>
+<p>&nbsp;</p>
+<p>To avoid having to put <span style="font-weight: bold;">DPSF.</span> in front of all of the DPSF classes and functions, you may put <span style="font-weight: bold;">using DPSF;</span> at the top of the file with the rest of the using statements.</p>
+<p>&nbsp;</p>
+<p><img src="usingdpsf.png" width="605" height="324" border="0" alt="UsingDPSF"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

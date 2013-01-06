@@ -1,0 +1,223 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>Tutorial 3 - Particle Events</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?tutorial_3___particle_events.htm"; }
+  else { parent.quicksync('a12.4'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Tutorial 3 - Particle Events</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction.htm">Top</a>&nbsp;
+     <a href="tutorial_2___particle_initialization_function.htm">Previous</a>&nbsp;
+     <a href="tutorial_4___particle_system_events.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>In this tutorial we will look at Particle Events, which are used to update the particle properties and control particles at run-time.</p>
+<p>&nbsp;</p>
+<p>Load the Tutorial 3 project and open up MyParticleSystem.cs.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">What are Particle Events?</span></p>
+<p>&nbsp;</p>
+<p>Particle Events are basically function pointers, similar to the Particle Initialization Function, except that they are used to update a particle's properties during the particle's Lifetime, instead of when the particle is born and added to the simulation. &nbsp;So Particle Events control the updating of all of the particles' properties from one frame to the next.</p>
+<p>&nbsp;</p>
+<p>There are 4 types of Events: Every Time Events, One Time Events, Timed Events, and Normalized Timed Events, each of which are <a href="types_of_events.htm">described here</a>.</p>
+<p>&nbsp;</p>
+<p>Any functions that you define and intend to use as a Particle Event functions must follow the <span style="font-weight: bold;">UpdateParticleDelegate</span> prototype, which is:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">public void FunctionName(Particle cParticle, float fElapsedTimeInSeconds);</span> where Particle is the particle class that the particle system is using for its particles.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Every Time Events</span></p>
+<p>&nbsp;</p>
+<p>Every Time Events are used to do updates that need to happen every frame. &nbsp;This includes things like updating a particle's position according to its velocity, and interpolating a particle's color between a birth color and death color as it ages. &nbsp;Here is an example of what a function used to update a particle's position according to its velocity might look like:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticlePositionUsingVelocity(</span><span style="font-family: 'Consolas'; color: #2b91af;">DefaultTexturedQuadParticle</span><span style="font-family: 'Courier New';"> cParticle, </span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">{</span></p>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">cParticle.Position += cParticle.Velocity * fElapsedTimeInSeconds;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>Like the Particle Initialization functions, Particle Event functions provide the particle to be updated as a parameter. &nbsp;In addition, Particle Event functions also supply the amount of time that has elapsed since the last time the particle system was updated. &nbsp;As a guideline, any <span style="font-weight: bold;">Particle Update functions</span> (used with Particle Events) that you define should have their name begin with <span style="font-weight: bold;">UpdateParticle</span>. &nbsp;This is not mandatory, but it is the convention that DPSF uses for its Default classes, and it makes locating these Particle Update functions in Visual Studio's Intellisense easier since they will be grouped together alphabetically.</p>
+<p>&nbsp;</p>
+<p>You will notice here that this function assumes that our Particle class has both a Position and Velocity property defined. &nbsp;All of the <a href="default_particle_systems.htm">Default Particle System classes</a> define their particles to have a Position, Velocity, and Acceleration property, as well as several others. &nbsp;The Default classes also define several Particle Update functions to update these properties. &nbsp;For example, the <span style="font-weight: bold;">UpdateParticlePositionUsingVelocity()</span> function shown above is provided by the Default classes, so you don't have to write it yourself.</p>
+<p>&nbsp;</p>
+<p>Now even though our Particles have Position and Velocity properties, and we have a function defined to update a particle's Position according to its Velocity, if we tried to run the particle system simulation the particles would not move. &nbsp;This is because we haven't told the particle system to use that function to update the particle properties yet. &nbsp;We do this by adding the function to the <span style="font-weight: bold;">ParticleEvents</span> object, which is located in the <span style="font-weight: bold;">LoadParticleSystem()</span> function. &nbsp;Also, because we want the particles' position to be updated every frame, we add it as an Every Time Event. &nbsp;So if you look in the <span style="font-weight: bold;">LoadParticleSystem()</span> function you should find the following line:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleEvents.AddEveryTimeEvent(UpdateParticlePositionUsingVelocity);</span></p>
+<p>&nbsp;</p>
+<p>In Tutorial 2 if you tried setting the Friction or External Force property for the particles you would not have seen a change in the particles' behaviour. &nbsp;This would have been because in addition to setting the particle's Friction / External Force, you would have also needed to add the Particle Update function to the <span style="font-weight: bold;">ParticleEvents</span> object. &nbsp;So if you are ever making changes to particle properties, but not seeing a difference in the simulation, be sure that you have added the Particle Update function as a Particle Event.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Specifying the execution order of the Events</span></p>
+<p>&nbsp;</p>
+<p>Often times several Particle Update function might operate on the same Particle properties, and you may require one Event to fire (i.e. execute the function it points to) before another. &nbsp;This can be accomplished by providing the <span style="font-weight: bold;">ExecutionOrder</span> of the Event when adding it to the <span style="font-weight: bold;">ParticleEvents</span> object.</p>
+<p>&nbsp;</p>
+<p>The <span style="font-weight: bold;">LoadParticleSystem()</span> function in the tutorial shows this bit of code:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #008000;">// Allow the Particle's Velocity, Rotational Velocity, Color, and Transparency to be updated each frame</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticlePositionUsingVelocity);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticleRotationUsingRotationalVelocity);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticleColorUsingLerp);</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// This function must be executed after the Color Lerp function as the Color Lerp will overwrite the Color's</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Transparency value, so we give this function an Execution Order of 100 to make sure it is executed last.</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticleTransparencyToFadeOutUsingLerp, 100);</span></p>
+<p>&nbsp;</p>
+<p>Here we can see that the last Particle Event added specifies an <span style="font-weight: bold;">ExecutionOrder</span> of <span style="font-weight: bold;">100</span>. &nbsp;This is because both the <span style="font-weight: bold;">UpdateParticleColorUsingLerp()</span> function and <span style="font-weight: bold;">UpdateParticleTransparencyToFadeOutUsingLerp()</span> function modify a particle's Color property. &nbsp;When UpdateParticleColorUsingLerp() is executed it overwrites the particle's existing Color value, including the transparency component. &nbsp;UpdateParticleTransparencyToFadeOutUsingLerp() on the other hand only modifies the transparency component of the color, leaving the RGB values in tact. &nbsp;So in this example we want to make sure that UpdateParticleTransparencyToFadeOutUsingLerp() is executed after UpdateParticleColorUsingLerp(). &nbsp;If you don't supply an ExecutionOrder when adding Events they are given a default ExecutionOrder of zero. &nbsp;And since Events are fired from lowest to highest ExecutionOrder, giving UpdateParticleTransparencyToFadeOutUsingLerp() an ExecutionOrder of 100 will ensure that it is executed after UpdateParticleColorUsingLerp().  </p>
+<p>&nbsp;</p>
+<p>Try giving the <span style="font-weight: bold;">UpdateParticleColorUsingLerp()</span> Event a higher <span style="font-weight: bold;">ExecutionOrder</span> than <span style="font-weight: bold;">UpdateParticleTransparencyToFadeOutUsingLerp()</span>, such as 200, and see what happens. &nbsp;It should have the same effect as commenting out the line that adds UpdateParticleTransparencyToFadeOutUsingLerp() as an Event. &nbsp;You should also note that Events with the same ExecutionOrder are not guaranteed to execute in the same order they are added to the <span style="font-weight: bold;">ParticleEvents</span> object, so if you need one Event to fire after another one, specify it explicitly using the ExecutionOrder.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">One Time Events</span></p>
+<p>&nbsp;</p>
+<p>One Time Events are used to update every Active particle in the particle system once, and then they are removed automatically. &nbsp;So unlike Every Time Events that fire every frame, One Time Events only fire once and then are removed. &nbsp;One Time Events are useful for doing things like responding to in-game events or user input.</p>
+<p>&nbsp;</p>
+<p>Locate the <span style="font-weight: bold;">UpdateParticleVelocityToTravelRight()</span> function in MyParticleSystem.cs:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticleVelocityToTravelRight(</span><span style="font-family: 'Consolas'; color: #2b91af;">DefaultTexturedQuadParticle</span><span style="font-family: 'Courier New';"> cParticle, </span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">cParticle.Velocity = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';">(RandomNumber.Next(50, 100), 0, 0);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>You can see that this Particle Update function will change the Velocity property of the particles to make them travel in the right direction (positive x-axis direction). &nbsp;Locate the <span style="font-weight: bold;">MakeParticlesTravelRight()</span> function:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> MakeParticlesTravelRight()</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddOneTimeEvent(UpdateParticleVelocityToTravelRight);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>When you press the X key during the tutorial's simulation, the <span style="font-weight: bold;">MakeParticlesTravelRight()</span> function will be called. &nbsp;This function adds a One Time Event that fires once and executes the <span style="font-weight: bold;">UpdateParticleVelocityToTravelRight()</span> Particle Update function on all active particles, changing their velocity.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Timed Events</span></p>
+<p>&nbsp;</p>
+<p>Timed events are similar to One Time Events in that they only fire once. &nbsp;The difference however is that One Time Events fire as soon as they are added to the <span style="font-weight: bold;">ParticleEvents</span> object and are executed on all active particles, while Timed Events allow you to specify a time within a particle's <span style="font-weight: bold;">Lifetime</span> when the event should fire. &nbsp;Once a particle's <span style="font-weight: bold;">ElapsedTime</span> reaches the specified <span style="font-weight: bold;">TimeToFire</span>, the Timed Event will fire on that single particle, executing the Particle Update function that it points to only on that single particle. &nbsp;So Timed Events allow you to specify when certain actions should occur, relative to each individual particle's Lifetime.</p>
+<p>&nbsp;</p>
+<p>Locate the <span style="font-weight: bold;">UpdateParticleToUseRotationalVelocity()</span> function in MyParticleSystem.cs:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticleToUseRotationalVelocity(</span><span style="font-family: 'Consolas'; color: #2b91af;">DefaultTexturedQuadParticle</span><span style="font-family: 'Courier New';"> cParticle, </span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.RotationalVelocity.Z = RandomNumber.Between(-</span><span style="font-family: 'Courier New'; color: #2b91af;">MathHelper</span><span style="font-family: 'Courier New';">.TwoPi, </span><span style="font-family: 'Courier New'; color: #2b91af;">MathHelper</span><span style="font-family: 'Courier New';">.TwoPi);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>This Particle Update function will randomly the particle's Rotational Velocity. &nbsp;The tutorial specifies it as a One Time Event in the <span style="font-weight: bold;">LoadParticleSystem()</span> function using the following line:</p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;ParticleEvents.AddTimedEvent(0.5f, UpdateParticleToUseRotationalVelocity);</span></p>
+<p>&nbsp;</p>
+<p>This line of code specifies that the <span style="font-weight: bold;">UpdateParticleToUseRotationalVelocity()</span> Particle Update function should be called after a particle has existed for exactly 0.5 seconds. &nbsp;If you specified a <span style="font-weight: bold;">TimeToFire</span> greater than the particle's Lifetime, the Timed Event would not fire since the particle's ElapsedTime would never reach the specified TimeToFire.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Normalized Timed Events</span></p>
+<p>&nbsp;</p>
+<p>Normalized Timed Events are basically the exact same as Timed Events, except that the specified <span style="font-weight: bold;">TimeToFire</span> is a normalized value between 0.0 and 1.0 corresponding to the particle's normalized lifetime; so 0.0 corresponds to the particle's birth and 1.0 corresponds to the particle's death. &nbsp;So if a particle was given a Lifetime of 5.0 seconds, then a Normalized Timed Event with a <span style="font-weight: bold;">TimeToFire</span> of 0.5 would cause the event to fire after the particle has existed for exactly 2.5 seconds (half of the particle's Lifetime).</p>
+<p>&nbsp;</p>
+<p>Normalized Timed Events are useful when the particle's are initialized with random Lifetimes. &nbsp;For example, if we had a particle with a Lifetime of 4 seconds, and another particle with a Lifetime of 8 seconds, and we wanted an event to fire at exactly one quarter of the way through the particle's Lifetime, we would not be able to accomplish this using Timed Events, since we would need to be able to specify that the event fires after 1.0 second for the first particle, and after 2.0 seconds for the second particle. &nbsp;We can accomplish this using Normalized Timed Events however, by simply specifying a normalized <span style="font-weight: bold;">TimeToFire</span> of 0.25.</p>
+<p>&nbsp;</p>
+<p>Locate the<span style="font-weight: bold;"> UpdateParticleSizeTo20()</span> function in MyParticleSystem.cs:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticleSizeTo20(</span><span style="font-family: 'Consolas'; color: #2b91af;">DefaultTexturedQuadParticle</span><span style="font-family: 'Courier New';"> cParticle, </span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Size = 20;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>This Particle Update function simply changes the Size of a particle to be 20. &nbsp;The tutorial adds this function as an Event in the <span style="font-weight: bold;">LoadParticleSystem()</span> function with the line:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleEvents.AddNormalizedTimedEvent(0.5f, UpdateParticleSizeTo20);</span></p>
+<p>&nbsp;</p>
+<p>So this line specifies that exactly half way through a particle's Lifetime, the particle's Size should change to be 20.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Removing Events and using Groups</span></p>
+<p>&nbsp;</p>
+<p>All Events can be added and removed at run-time, allowing for interaction with the particle system at run-time. &nbsp;Multiple events may be added to a particle system to achieve a desired effect. &nbsp;Because of this, DPSF allows you to specify a <span style="font-weight: bold;">Group</span> that the event should belong to, allow events belonging to a common group to be easily removed.</p>
+<p>&nbsp;</p>
+<p>In MyParticleSystem.cs, locate the <span style="font-weight: bold;">UpdateParticleVisibleOn()</span> / <span style="font-weight: bold;">Off()</span> Particle Update functions:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticleVisibleOn(</span><span style="font-family: 'Consolas'; color: #2b91af;">DefaultTexturedQuadParticle</span><span style="font-family: 'Courier New';"> cParticle, </span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Visible = </span><span style="font-family: 'Courier New'; color: #0000ff;">true</span><span style="font-family: 'Courier New';">;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticleVisibleOff(</span><span style="font-family: 'Consolas'; color: #2b91af;">DefaultTexturedQuadParticle</span><span style="font-family: 'Courier New';"> cParticle, </span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Visible = </span><span style="font-family: 'Courier New'; color: #0000ff;">false</span><span style="font-family: 'Courier New';">;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>Here we can see that these two functions simply turn a Particle's Visibility on and off. &nbsp;To make the Particles flash, the tutorial calls the <span style="font-weight: bold;">AddMultipleEvents()</span> function when the C key is pressed:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> AddMultipleEvents()</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Make the Particles flash</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.05f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.1f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.15f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.2f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.25f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.3f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.35f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.4f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.45f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.5f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.55f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.6f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.65f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.7f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.75f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.8f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.85f, UpdateParticleVisibleOff, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddNormalizedTimedEvent(0.9f, UpdateParticleVisibleOn, 0, 1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>Adding these events will cause the particles to flash on and off throughout their lifetime. &nbsp;Notice that all of the Events are given a <span style="font-weight: bold;">Group</span> number of <span style="font-weight: bold;">1</span> (and an ExecutionOrder of 0). &nbsp;To turn this effect off, the tutorial calls the <span style="font-weight: bold;">RemoveMultipleEvents()</span> function when the V key is pressed:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> RemoveMultipleEvents()</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.RemoveAllEventsInGroup(1);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>You can see that instead of having to remove each of the Events individually, we can just specify to remove all Events that belong to Group 1.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Remarks</span></p>
+<p>&nbsp;</p>
+<p>Try commenting out the ParticleEvents in the <span style="font-weight: bold;">LoadParticleSystem()</span> function one at a time to see what effect each has on the final simulation.</p>
+<p>&nbsp;</p>
+<p>To see the effects of each Event more clearly, also try reducing the Emitter's Particles Per Second (using the + / - keys) to 1, and increasing it to a higher value like 200.</p>
+<p>&nbsp;</p>
+<p>Now that you have seen Particle Events you can now take advantage of using all of the Default Particle properties (i.e. friction, external forces, etc.). &nbsp;Just be sure to add the appropriate Particle Update function as an event in order for the properties to have an effect on the particles. &nbsp;DPSF provides Particle Update functions to use with the Default Particle properties, and their names all start with <span style="font-weight: bold;">UpdateParticle...</span> (e.g. UpdateParticleVelocityUsingFriction).</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

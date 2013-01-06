@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>Inherit From DrawableGameComponent</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?inherit_from_drawablegamecomponent.htm"; }
+  else { parent.quicksync('a7.1'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Inherit From DrawableGameComponent</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction.htm">Top</a>&nbsp;
+     <a href="using_dpsf_in_your_project.htm">Previous</a>&nbsp;
+     <a href="integrating_dpsf_into_your_xna_project.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>DPSF provides two dll files: <span style="font-weight: bold;">DPSF.dll</span> and <span style="font-weight: bold;">DPSFAsDrawableGameComponent.dll</span>. &nbsp;You should <span style="font-weight: bold;">only reference one</span> of them in your project, or else you will get conflicting namespaces.</p>
+<p>&nbsp;</p>
+<p>DPSF.dll is the default file to reference. &nbsp;If you want your DPSF particle systems to inherit from the Microsoft.XNA.Framework.DrawableGameComponent class, then reference the DPSFAsDrawableGameComponent.dll instead.</p>
+<p>&nbsp;</p>
+<p>The advantage to using the DPSFAsDrawableGameComponent.dll and having DPSF inherit from DrawableGameComponent is that the particle system's <span style="font-weight: bold;">UpdateOrder</span> and <span style="font-weight: bold;">DrawOrder</span> will be performed relative to all other drawable game components. &nbsp;If not inheriting from DrawableGameComponent, the UpdateOrder and DrawOrder only have an effect when used inside a <a href="particle_system_manager.htm">Particle System Manager</a>, and their UpdateOrder and DrawOrder are only relative to other particle systems in the same particle system manager.</p>
+<p>&nbsp;</p>
+<p>If DPSF is set to inherit from DrawableGameComponent, particle systems are automatically added to the Game object's (given in the particle system constructor) components and the Update() and Draw() functions are automatically called by the Game object when it updates and draws the rest of its components. &nbsp;If the Update() and Draw() functions are called by the user anyways, they will exit without performing any operations, so it is suggested to include them anyways to make switching between inheriting and not inheriting from DrawableGameComponent seamless; just be aware that the updates and draws are actually being performed when the Game components are told to update and draw (i.e. when base.Update() and base.Draw() are called), not when these functions are being called.  If inheriting from DrawableGameComponent and you want to force the updating or drawing of the particle system, this can be done by calling the UpdateForced() and DrawForced() functions respectively. &nbsp;Be aware however that this will cause the particle system to be updated / drawn twice per frame; once when it is explicitly called and once when the game components are updated / drawn.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

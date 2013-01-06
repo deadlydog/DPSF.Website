@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>What Are Events</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?what_are_events.htm"; }
+  else { parent.quicksync('a4.1'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">What Are Events</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction.htm">Top</a>&nbsp;
+     <a href="events.htm">Previous</a>&nbsp;
+     <a href="types_of_events.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p><span style="font-weight: bold;">Events</span> are essentially function pointers with some extra data. &nbsp;They are used to dynamically update the particle system and its particles at run-time by allowing you to specify when a specific function should be called, and the order it should be called in relative to the other events. &nbsp;Each time a particle system's <span style="font-weight: bold;">Update()</span> function is called the particle system checks to see if any events should <span style="font-weight: bold;">fire</span> (i.e. execute), and fires them if necessary. &nbsp;Most events are typically setup before the particle system is ran, but they may also be added and removed at run-time.  Additionally, you may also assign an event a group number, allowing multiple events belonging to the same group to be easily removed.</p>
+<p>&nbsp;</p>
+<p>Every DPSF particle system has a property called <span style="font-weight: bold;">ParticleEvents<a name="particleevents"></a></span> which keeps track of the particle system's particle events, and a property called <span style="font-weight: bold;">ParticleSystemEvents<a name="particlesystemevents"></a></span> which keeps track of the particle system events. &nbsp;Particle events are events that are executed on the particle system's particles, and are used to update the particle's properties. Particle system events are events that executed on the particle system itself, allowing the particle system's properties to be updated.</p>
+<p>&nbsp;</p>
+<p>An event holds a function pointer to the function that should execute when the event fires. &nbsp;Particle event functions must follow the <span style="font-weight: bold;">UpdateParticleDelegate</span> prototype, which is:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">public void FunctionName(Particle cParticle, float fElapsedTimeInSeconds);</span> where Particle is the particle class that the particle system is using for its particles.</p>
+<p>&nbsp;</p>
+<p>Particle system event functions must follow the <span style="font-weight: bold;">UpdateParticleSystemDelegate</span> prototype, which is:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">public void FunctionName(float fElapsedTimeInSeconds);</span></p>
+<p>&nbsp;</p>
+<p>So when you create new particle or particle system event functions, they must follow the above prototypes. &nbsp;This is shown in each of the <a href="creating_a_new_particle_system_from_a_template.htm#templates">template files</a>. &nbsp;One thing to note however is that the functions do not necessarily have to be public; they can also be private, protected, or internal.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

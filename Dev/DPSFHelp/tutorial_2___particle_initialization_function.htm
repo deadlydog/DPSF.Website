@@ -1,0 +1,178 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>Tutorial 2 - Particle Initialization Function</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?tutorial_2___particle_initialization_function.htm"; }
+  else { parent.quicksync('a12.3'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Tutorial 2 - Particle Initialization Function</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction.htm">Top</a>&nbsp;
+     <a href="tutorial_1___defining__updating__and_drawing_a_particle_system.htm">Previous</a>&nbsp;
+     <a href="tutorial_3___particle_events.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>In this tutorial we will look at the Particle Initialization Function, which specifies what a particle's initial properties (position, velocity, color, etc.) should be.</p>
+<p>&nbsp;</p>
+<p>Like in tutorial 1, we will be working with the Default Textured Quad Particle System Template again, only this time the template file and class have been renamed to MyParticleSystem. &nbsp;You should always rename the the template's file and class when importing it into your project to avoid name conflicts when importing template flies again later to create more particle systems, as is mentioned in the <a href="creating_a_new_particle_system_from_a_template.htm">templates section</a>.</p>
+<p>&nbsp;</p>
+<p>Load the Tutorial 2 project and open up MyParticleSystem.cs.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Specifying a particle's initial properties using the InitialProperties object</span></p>
+<p>&nbsp;</p>
+<p>The <span style="font-weight: bold;">Default</span> templates inherit from the <a href="default_particle_systems.htm">Default Particle System</a> classes. &nbsp;These Default Particle System classes have a corresponding Default Particle class which specifies the properties of the particles, such as position, velocity, size, color, etc. &nbsp;The Default Particle System classes also provide an <span style="font-weight: bold;">InitialProperties</span> object in which you can specify the Min and Max values that the particle properties should be initialized with.</p>
+<p>&nbsp;</p>
+<p>Locate the <span style="font-weight: bold;">LoadParticleSystem()</span> function. &nbsp;The first line of code in this function you will see is:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleInitializationFunction = InitializeParticleUsingInitialProperties;</span></p>
+<p>&nbsp;</p>
+<p>Every DPSF Particle System has a <span style="font-weight: bold;">ParticleInitializationFunction</span> property. &nbsp;This property is basically a function pointer that points to the function that should be used to initialize a new particle's properties when it is added to the particle system simulation.</p>
+<p>&nbsp;</p>
+<p>The Default Particle System classes provide the function <span style="font-weight: bold;">InitializeParticleUsingInitialProperties()</span>, which will set the new particle's properties according to the values specified in the <span style="font-weight: bold;">InitialProperties</span> object. &nbsp;The next set of code in the LoadParticleSystem() function specifies the <span style="font-weight: bold;">InitialProperties</span> object's values:</p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp;  </span><span style="font-family: 'Consolas';">InitialProperties.LifetimeMin = 1.5f;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.LifetimeMax = 3.0f;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.PositionMin = </span><span style="font-family: 'Consolas'; color: #2b91af;">Vector3</span><span style="font-family: 'Consolas';">.Zero;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.PositionMax = </span><span style="font-family: 'Consolas'; color: #2b91af;">Vector3</span><span style="font-family: 'Consolas';">.Zero;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.VelocityMin = </span><span style="font-family: 'Consolas'; color: #0000ff;">new</span><span style="font-family: 'Consolas';"> </span><span style="font-family: 'Consolas'; color: #2b91af;">Vector3</span><span style="font-family: 'Consolas';">(-50, 50, -50);</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.VelocityMax = </span><span style="font-family: 'Consolas'; color: #0000ff;">new</span><span style="font-family: 'Consolas';"> </span><span style="font-family: 'Consolas'; color: #2b91af;">Vector3</span><span style="font-family: 'Consolas';">(50, 100, 50);</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.RotationMin.Z = 0.0f;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.RotationMax.Z = </span><span style="font-family: 'Consolas'; color: #2b91af;">MathHelper</span><span style="font-family: 'Consolas';">.Pi;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.RotationalVelocityMin.Z = -</span><span style="font-family: 'Consolas'; color: #2b91af;">MathHelper</span><span style="font-family: 'Consolas';">.Pi;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.RotationalVelocityMax.Z = </span><span style="font-family: 'Consolas'; color: #2b91af;">MathHelper</span><span style="font-family: 'Consolas';">.Pi;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.StartSizeMin = 20;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.StartSizeMax = 40;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.EndSizeMin = 30;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.EndSizeMax = 30;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.StartColorMin = </span><span style="font-family: 'Consolas'; color: #2b91af;">Color</span><span style="font-family: 'Consolas';">.Black;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.StartColorMax = </span><span style="font-family: 'Consolas'; color: #2b91af;">Color</span><span style="font-family: 'Consolas';">.White;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.EndColorMin = </span><span style="font-family: 'Consolas'; color: #2b91af;">Color</span><span style="font-family: 'Consolas';">.Black;</span></p>
+<p><span style="font-family: 'Consolas';"> &nbsp; &nbsp; &nbsp; InitialProperties.EndColorMax = </span><span style="font-family: 'Consolas'; color: #2b91af;">Color</span><span style="font-family: 'Consolas';">.White;</span></p>
+<p>&nbsp;</p>
+<p>Play around with changing these values and running the source code to see how it affects the generated particle system.</p>
+<p>&nbsp;</p>
+<p>The InitialProperties and Particle objects have several more properties than what is shown here, such as acceleration and external force. &nbsp;However, setting these properties will not have an effect on the particle system simulation yet, and tutorial 3 will explain why.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Specifying a particle's initial properties with a new function</span></p>
+<p>&nbsp;</p>
+<p>In addition to using the <span style="font-weight: bold;">InitialProperties</span> object, you can also create your own function to initialize a particle's properties.  Any particle initialization functions you create must follow the <span style="font-weight: bold;">InitializeParticleDelegate</span> prototype, which is:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">public void FunctionName(Particle cParticle);</span> where Particle is the particle class that the particle system is using for its particles.</p>
+<p>&nbsp;</p>
+<p>An example of this is shown in MyParticleSystem.cs by the <span style="font-weight: bold;">InitializeParticleProperties()</span> function.</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> InitializeParticleProperties(</span><span style="font-family: 'Courier New'; color: #2b91af;">DefaultTexturedQuadParticle</span><span style="font-family: 'Courier New';"> cParticle)</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle's Lifetime (how long it should exist for)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Lifetime = 2.0f;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle's initial Position to be wherever the Emitter is</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Position = Emitter.PositionData.Position;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle's Velocity</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';"> sVelocityMin = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';">(-100, 25, -100);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';"> sVelocityMax = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';">(100, 50, 100);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Velocity = </span><span style="font-family: 'Courier New'; color: #2b91af;">DPSFHelper</span><span style="font-family: 'Courier New';">.RandomVectorBetweenTwoVectors(sVelocityMin, sVelocityMax);</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Adjust the Particle's Velocity direction according to the Emitter's Orientation</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Velocity = </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';">.Transform(cParticle.Velocity, Emitter.OrientationData.Orientation);</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Give the Particle a random Size</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Since we have Size Lerp enabled we must also set the Start and End Size</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Size = cParticle.StartSize = cParticle.EndSize = RandomNumber.Next(10, 20);</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Give the Particle a random Color</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Since we have Color Lerp enabled we must also set the Start and End Color</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Color = cParticle.StartColor = cParticle.EndColor = </span><span style="font-family: 'Courier New'; color: #2b91af;">DPSFHelper</span><span style="font-family: 'Courier New';">.RandomColor();</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">}</span></p>
+<p>&nbsp;</p>
+<p>You can create several particle initialization functions if you like. &nbsp;Also, creating your own function to initialize the particle property values can give you more control over the exact values assigned to the particle's properties. &nbsp;An example of this is shown by the <span style="font-weight: bold;">InitializeParticleProperties2()</span> function, where the size of the new particle is based on a variable that increases or decreases each time a new particle is added to the simulation:</p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #008000;">// Variables used by the InitializeParticleProperties2() function</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">int</span><span style="font-family: 'Courier New';"> miCurrentSize = 10;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">bool</span><span style="font-family: 'Courier New';"> mbSizeIncreasing = </span><span style="font-family: 'Courier New'; color: #0000ff;">true</span><span style="font-family: 'Courier New';">;</span></p>
+<p>&nbsp;</p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> InitializeParticleProperties2(</span><span style="font-family: 'Courier New'; color: #2b91af;">DefaultTexturedQuadParticle</span><span style="font-family: 'Courier New';"> cParticle)</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle's Lifetime (how long it should exist for)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Lifetime = 1.0f;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle's initial Position to be wherever the Emitter is</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Position = Emitter.PositionData.Position;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle's Velocity</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Velocity = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';">(0, 200, 0);</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Adjust the Particle's Velocity direction according to the Emitter's Orientation</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Velocity = </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';">.Transform(cParticle.Velocity, Emitter.OrientationData.Orientation);</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// If the Particles should be Increasing in Size</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">if</span><span style="font-family: 'Courier New';"> (mbSizeIncreasing)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;miCurrentSize++;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Else they should be Decreasing in Size</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">else</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;miCurrentSize--;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// If the Particle Size is too small or too large, negate the size scaling</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">if</span><span style="font-family: 'Courier New';"> (miCurrentSize &lt;= 10 || miCurrentSize &gt;= 60)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mbSizeIncreasing = !mbSizeIncreasing;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle's Size to our CurrentSize value</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Since we have Size Lerp enabled we must also set the Start and End Size</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Size = cParticle.StartSize = cParticle.EndSize = miCurrentSize;</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Give the Particle a random Color</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Since we have Color Lerp enabled we must also set the Start and End Color</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cParticle.Color = cParticle.StartColor = cParticle.EndColor = </span><span style="font-family: 'Courier New'; color: #2b91af;">DPSFHelper</span><span style="font-family: 'Courier New';">.RandomColor();</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p>&nbsp;</p>
+<p>You can even switch particle initialization functions at run-time. &nbsp;Tutorial 2 shows this by allowing you to switch between the 3 initialization functions shown here by pressing the X, C, and V keys, resulting in different effects for each one.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;">Remarks</span></p>
+<p>&nbsp;</p>
+<p>Feel free to play around with the particle initialization functions or to create your own new ones.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

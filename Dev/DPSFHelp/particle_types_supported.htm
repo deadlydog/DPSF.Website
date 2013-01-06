@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>Particle Types Supported</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?particle_types_supported.htm"; }
+  else { parent.quicksync('a3.1'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#D0D0D0">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Particle Types Supported</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction.htm">Top</a>&nbsp;
+     <a href="particle_system_types.htm">Previous</a>&nbsp;
+     <a href="comparison_of_particle_types.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>DPSF supports 6 types of particle systems: <a href="particle_types_supported.htm#sprites">Sprites</a>, <a href="particle_types_supported.htm#quads">Quads</a>, <a href="particle_types_supported.htm#texturedquads">Textured Quads</a>, and <a href="particle_types_supported.htm#nodisplay">No Display</a>. &nbsp;Before you start building your particle system, you will want to determine which type of particle system best fits your needs.</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Sprites<a name="sprites"></a></span></p>
+<p>&nbsp;</p>
+<p>Because Sprite particles don't use the DPSFDefaultEffect, they are currently the only particle system that may be used on the Windows Phone 7, since the WP7 doesn't support using custom shaders.</p>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;">2D Sprites</span></p>
+<p>Sprite particle systems are drawn as a texture in 2D screen coordinates using a SpriteBatch object. &nbsp;Even though these have 2D screen positions, they may also be given a Z value between 0.0 (front) and 1.0 (back) to determine which sprites are drawn in front of other sprites (Z-buffer). &nbsp;Sprites only allow for 2D roll rotations, always face the camera, and must use a texture.</p>
+<p>&nbsp;</p>
+<p>Unlike the rest of the particle systems, Sprite particle systems are not affected by the World, View, and Projection matrices, since they are in 2D screen coordinates. &nbsp;Also, Sprite particle systems have some extra settings that affect how the SpriteBatch draws them, including a Transformation matrix, and these may be modified in the <span style="font-weight: bold;">SpriteBatchSettings</span> object (see the <a href="dpsf_api_documentation.htm">DPSF API Documentation</a> for more information on the SpriteBatchSettings class).</p>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;">3D Sprites</span></p>
+<p>There is also a Sprite3DBillboardParticleSystem that may be used which inherits from the Sprite particle type. &nbsp;The particle types share all of the same properties as the regular Sprite particle type, except that they are drawn in 3D world coordinates as billboard textures using a SpriteBatch object and the AlphaTestEffect.</p>
+<p>&nbsp;</p>
+<p>The DefaultSpriteParticleVertex should be used for Sprite particle systems, although the structure is empty and does not contain any properties since the vertex buffer is not used to draw Sprite particle systems; a SpriteBatch object is used.</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Quads<a name="quads"></a></span></p>
+<p>&nbsp;</p>
+<p>Quad particle systems require four vertices per particle in the vertex buffer, and each vertex typically has at least a position in 3D world coordinates and a color. &nbsp;The vertices may be given additional properties as well, such as a normal direction if lighting is desired. &nbsp;Quad particles allow for rotations in all 3 dimensions, do not have to always face the camera, may be skewed into any quadrilateral such as a square, rectangle, or trapezoid, and do not use a texture. &nbsp;The relation of the quads four vertices' position to one another determines the orientation of the particle.</p>
+<p>&nbsp;</p>
+<p>The DefaultQuadParticleVertex contains only a 3D position and a color.</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">Textured Quads<a name="texturedquads"></a></span></p>
+<p>&nbsp;</p>
+<p>Textured Quad particle systems have the same properties as Quads, except that they must use a texture so the vertices must contain texture coordinates. &nbsp;Also, the vertices do not have to contain a color property, but may use one with which to tint the color of the texture.</p>
+<p>&nbsp;</p>
+<p>The DefaultTexturedQuadParticleVertex contains a 3D position, texture coordinates, and a color.</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: bold;">No Display<a name="nodisplay"></a></span></p>
+<p>&nbsp;</p>
+<p>No Display particle systems are meant for situations where the particles will not be visualized (e.g. drawn to the screen), such as possible research applications or when using a DPSF particle system as an internal data structure. &nbsp;No Display particle systems require less memory as they do not require a vertex buffer since the particles will not be drawn.</p>
+<p>&nbsp;</p>
+<p>The DefaultNoDisplayParticleVertex should be used for No Display particle systems, although the structure is empty and does not contain any properties since the particles will not be drawn and a vertex buffer is not required.</p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>
