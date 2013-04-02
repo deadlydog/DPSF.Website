@@ -287,7 +287,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 </td>
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';"><a href="http://msdn2.microsoft.com/en-us/library/4k87zsw7" target="_blank" class="weblink">Finalize</a></span></p>
 </td>
-<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Allows an </span><span style="font-size: 9pt; font-family: 'Verdana';"><a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank" class="weblink">Object</a> to attempt to free resources and perform other cleanup operations before the <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank" class="weblink">Object</a> is reclaimed by garbage collection.</span></p>
+<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.</span></p>
 <p><span style="font-size: 9pt; font-family: 'Verdana';">(Inherited from <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank" class="weblink">Object</a>.)</span></p>
 </td>
 </tr>
@@ -503,7 +503,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 </td>
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';"><a href="http://msdn2.microsoft.com/en-us/library/7bxwbwt2" target="_blank" class="weblink">ToString</a></span></p>
 </td>
-<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Returns a </span><span style="font-size: 9pt; font-family: 'Verdana';"><a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank" class="weblink">String</a> that represents the current <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank" class="weblink">Object</a>.</span></p>
+<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Returns a string that represents the current object.</span></p>
 <p><span style="font-size: 9pt; font-family: 'Verdana';">(Inherited from <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank" class="weblink">Object</a>.)</span></p>
 </td>
 </tr>
@@ -693,7 +693,8 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 </td>
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';"><a href="html_b412ea0d_f83c_24c5_935c_ac6edc0f2109.htm">IndexBuffer</a></span></p>
 </td>
-<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Get / Set the Index Buffer values. The Index Buffer is used when drawing Quads in the HiDef profile.</span></p>
+<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Get / Set the 32-bit Index Buffer values.</span></p>
+<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana';">The Index Buffer is typically used when drawing Quads in the HiDef profile (except with MonoGame WinRT, which uses HiDef but only supports IndexBufferShort).</span></p>
 </td>
 </tr>
 <tr style="text-align:left;vertical-align:top;">
@@ -707,9 +708,10 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <tr style="text-align:left;vertical-align:top;">
 <td valign="top" width="10%" bgcolor="#f7f7ff" style="width:10%; background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><img src="protproperty.gif" width="16" height="16" border="0" alt="protproperty"></p>
 </td>
-<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';"><a href="html_2833225d_33d9_6bc6_2e02_268c4bbdef39.htm">IndexBufferReach</a></span></p>
+<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';"><a href="html_248b0958_9dfb_f7c4_f600_ea877a52d64b.htm">IndexBufferShort</a></span></p>
 </td>
-<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Get / Set the Index Buffer values. The Index Buffer Reach is used when drawing Quads in the Reach profile.</span></p>
+<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Get / Set the 16-bit Index Buffer values.</span></p>
+<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana';">The Index Buffer Short is typically used when drawing Quads in the Reach profile.</span></p>
 </td>
 </tr>
 <tr style="text-align:left;vertical-align:top;">
@@ -738,6 +740,14 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';"><a href="html_35b7a2b3_0c74_955d_3b94_a3a3012d046c.htm">IsInitialized</a></span></p>
 </td>
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Returns true if the Particle System is Initialized, false if not.</span></p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top" width="10%" bgcolor="#f7f7ff" style="width:10%; background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><img src="protproperty.gif" width="16" height="16" border="0" alt="protproperty"></p>
+</td>
+<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';"><a href="html_52c8371d_b5ff_dd02_77ca_13c8816bffae.htm">IsUsingIntegerIndexBuffer</a></span></p>
+</td>
+<td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana';">Get if we will be using the regular 32-bit Index Buffer (Integer) or the 16-bit Index Buffer (Short).</span></p>
 </td>
 </tr>
 <tr style="text-align:left;vertical-align:top;">
