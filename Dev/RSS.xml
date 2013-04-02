@@ -12,6 +12,12 @@
 <!-- New items get posted at the top of the list here -->	
 
 	<item>
+       <title>DPSF 2.4.0 (XNA 4) Released</title>
+       <link>http://www.xnaparticles.com/Download.php</link> 
+       <description>April 2, 2013 - DPSF version 2.4.0 has been released (finally). Now supports Android and WinRT via MonoGame!</description>
+    </item>
+
+	<item>
        <title>DPSF 2.3.0 (XNA 4) Released</title>
        <link>http://www.xnaparticles.com/Download.php</link> 
        <description>September 30, 2012 - DPSF version 2.3.0 has been released. Lots of improvements and bug fixes. Particle systems now support multiple emitters! Initial support for Mono for Android.</description>

@@ -34,12 +34,12 @@ the DPSF Demo solution showing how to create many different particle systems.</p
 
 
 <!-- Version Specific Highlights go here -->
-<h3>Highlights to versions 2.3.0 (XNA 4) - September 30, 2012</h3>
+<h3>Highlights to versions 2.4.0 (XNA 4) - April 2, 2013</h3>
 <ul>
-	<li>Particle systems can now support multiple Emitters! So rather than using multiple of the same particle system, just use one particle system with multiple emitters. Huge performance improvement!</li>
-    <li>Initial support added for Mono For Android, to support using DPSF on Android devices though the use of Mono. Still working some bugs out though.</li>
-    <li>Totally refactored the DPSF Demo to make it easier to follow and the pieces more reusable.
-    <li>Minor bug fixes and features added.</li>
+	<li>Got DPSF working properly on Android using MonoGame and added DPSF Demo for Mono for Android project to show DPSF working on Android.</li>
+	<li>Got DPSF working properly on WinRT using MonoGame and added DPSF Demo for WinRT project to show DPSF working on WinRT.</li>
+	<li>Changed the DefaultSpriteParticleSystem to use BlendState.NonPremultipled by default so that transparency is drawn.</li>
+	<li>Added try-catch blocks to prevent DPSF from throwing exceptions when moving app window between monitors.</li>
 </ul>
 
 <p>See the <a href="ChangeLog.php">full change log and download older versions of DPSF here</a>, including XNA 3.1 compatible versions.</p>
