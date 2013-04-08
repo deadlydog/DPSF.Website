@@ -13,6 +13,23 @@
 
 <h2>XNA 4 Versions of DPSF</h2>
 
+<h3>Version 2.4.0 - April 2, 2013</h3>
+<ul>
+	<li>Got DPSF working properly on Android using MonoGame and added DPSF Demo for Mono for Android project to show DPSF working on Android.</li>
+	<li>Got DPSF working properly on WinRT using MonoGame and added DPSF Demo for WinRT project to show DPSF working on WinRT.</li>
+	<li>Updated the Trail particle system included in the DPSF Demo a bit.</li>
+	<li>Changed the DefaultSpriteParticleSystem to use BlendState.NonPremultipled by default so that transparency is drawn.</li>
+	<li>Added try-catch blocks to prevent DPSF from throwing exceptions when moving app window between monitors.</li>
+	<li>Fixed bug where ParticleEmitterCollection's AllEmittersRemoved event was not firing.</li>
+</ul>
+
+<p>Possible Breaking Changes (see Updating Your Existing Particle Systems To Newer Versions of DPSF - 2.3.0 to 2.4.0 section of <a href="DPSFHelp/index.html">DPSF Help</a> for solutions):</p>
+<ul>
+	<li>Changed the ParticleEmitterCollection's Add() function to return back the new ParticleEmitter, rather than the new ParticleEmitter's ID.</li>
+	<li>Renamed IndexBufferReach to IndexBufferShort, since sometimes we need to use the short Index Buffer with the HiDef profile (e.g. with MonoGame WinRT).</li>
+	<li>Should now check the protected property IsUsingIntegerIndexBuffer to determine if the IndexBuffer or IndexBufferShort should be used (used to check "this.GraphicsDevice.GraphicsProfile == GraphicsProfile.HiDef").</li>
+</ul>
+
 <h3>Version 2.3.0 - September 30, 2012</h3>
 <ul>
 	<li>Fixed bug in Sprite Particle System Templates and Sprite particle systems where they wouldn't use the SpriteBatch passed into the AutoInitialize() function.</li>

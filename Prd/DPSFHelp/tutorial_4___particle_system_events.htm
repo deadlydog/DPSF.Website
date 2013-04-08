@@ -14,7 +14,7 @@
 <!--
 if (location.search.lastIndexOf("toc=0")<=0) {
   if (parent.frames.length==0) { parent.location.href="index.html?tutorial_4___particle_system_events.htm"; }
-  else { parent.quicksync('a11.5'); }
+  else { parent.quicksync('a12.5'); }
 }
 //-->
 </script>
@@ -55,7 +55,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>Any functions that you define and intend to use as a Particle System Event functions must follow the <span style="font-weight: bold;">UpdateParticleSystemDelegate</span> prototype, which is:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-weight: bold;">public void FunctionName(float fElapsedTimeInSeconds);</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">public void FunctionName(float fElapsedTimeInSeconds);</span></p>
 <p>&nbsp;</p>
 <p>Because <span style="font-weight: bold;">Particle System Update functions</span> (used with Particle System Events) operate on the particle system's properties, not the particle's properties, no Particle is supplied in the function parameters; only the elapsed time since the last particle system update is provided. &nbsp;As a guideline, any <span style="font-weight: bold;">Particle System Update functions</span> that you define should have their name begin with <span style="font-weight: bold;">UpdateParticleSystem</span>. &nbsp;This is not mandatory, but it is the convention that DPSF uses for its Default classes, and it makes locating these Particle System Update functions in Visual Studio's Intellisense easier since they will be grouped together alphabetically.</p>
 <p>&nbsp;</p>
@@ -68,22 +68,22 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>In MyParticleSystem.cs locate the <span style="font-weight: bold;">UpdateParticleSystemChangeParticleColorRandomly()</span> Particle System Update function:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New'; color: #000000;"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New'; color: #000000;"> UpdateParticleSystemChangeParticleColorRandomly(</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New'; color: #000000;"> fElapsedTimeInSeconds)</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// If we randomly should change the color now</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">if</span><span style="font-family: 'Courier New'; color: #000000;"> (RandomNumber.Next(0, 60) == 30)</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;msNewParticleColor = </span><span style="font-family: 'Courier New'; color: #2b91af;">DPSFHelper</span><span style="font-family: 'Courier New'; color: #000000;">.RandomColor();</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticleSystemChangeParticleColorRandomly(</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// If we randomly should change the color now</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">if</span><span style="font-family: 'Courier New';"> (RandomNumber.Next(0, 60) == 30)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;msNewParticleColor = </span><span style="font-family: 'Courier New'; color: #2b91af;">DPSFHelper</span><span style="font-family: 'Courier New';">.RandomColor();</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
 <p>&nbsp;</p>
 <p>This function changes the Color variable <span style="font-weight: bold;">sNewParticleColor</span> at random intervals. &nbsp;sNewParticleColor is defined near the top of the MyParticleSystem class as a class variable:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #2b91af;">Color</span><span style="font-family: 'Courier New'; color: #000000;"> msNewParticleColor = </span><span style="font-family: 'Courier New'; color: #2b91af;">Color</span><span style="font-family: 'Courier New'; color: #000000;">.Red;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #2b91af;">Color</span><span style="font-family: 'Courier New';"> msNewParticleColor = </span><span style="font-family: 'Courier New'; color: #2b91af;">Color</span><span style="font-family: 'Courier New';">.Red;</span></p>
 <p>&nbsp;</p>
 <p>When new particles are initialized (using the Particle Initialization Function), the Color of the new particle is set to whatever color is stored in the sNewParticleColor variable. &nbsp;The Every Time Event pointing to this Particle System Update function is added in the <span style="font-weight: bold;">LoadParticleSystem()</span> function using the line:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">ParticleSystemEvents.AddEveryTimeEvent(UpdateParticleSystemChangeParticleColorRandomly);</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleSystemEvents.AddEveryTimeEvent(UpdateParticleSystemChangeParticleColorRandomly);</span></p>
 <p>&nbsp;</p>
 <p>So even though the UpdateParticleSystemChangeParticleColorRandomly() Particle System Update function is called every time the particle system is updated, the value of the msNewParticleColor variable is not changed every time. &nbsp;Because the function randomly picks when the msNewParticleColor variable should be updated, the Color of the new particles changes at random intervals.</p>
 <p>&nbsp;</p>
@@ -94,26 +94,26 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>For example, if you wanted to double the particle system's Simulation Speed when the X key is pressed, you could create a Particle System Update function such as this:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New'; color: #000000;"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New'; color: #000000;"> UpdateParticleSystemDoubleSimulationSpeed(</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New'; color: #000000;"> fElapsedTimeInSeconds)</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SimulationSpeed = 2.0f;</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticleSystemDoubleSimulationSpeed(</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SimulationSpeed = 2.0f;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
 <p>&nbsp;</p>
 <p>Then when the X key is pressed you would call this function:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New'; color: #000000;"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New'; color: #000000;"> DoubleSimulationSpeed()</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddOneTimeEvent(UpdateParticleSystemDoubleSimulationSpeed);</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> DoubleSimulationSpeed()</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddOneTimeEvent(UpdateParticleSystemDoubleSimulationSpeed);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
 <p>&nbsp;</p>
 <p>This function calls the UpdateParticleSystemDoubleSimulationSpeed() function the next time the particle system is updated by using a One Time Event. &nbsp;Since changing the Simulation Speed doesn't require knowing how much time has elapsed since the last update, and we don't care when it is called in relation to the other Particle System Update functions, we could have just created a simple function to double the simulation speed and called it directly. &nbsp;Let's use this method to reset the Simulation Speed to its default value of 1.0.</p>
 <p>&nbsp;</p>
 <p>So all we would need to do to reset the Simulation Speed to 1.0 is call the following function when the C key is pressed:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New'; color: #000000;"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New'; color: #000000;"> NormalSimulationSpeed()</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SimulationSpeed = 1.0f;</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> NormalSimulationSpeed()</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SimulationSpeed = 1.0f;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
 <p>&nbsp;</p>
 <p>MyParticleSystem.cs shows these 3 functions, and they are called during the simulation when the X and C keys are pressed.</p>
 <p>&nbsp;</p>
@@ -124,40 +124,40 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>For Particle Events, each Particle has Lifetime and Elapsed Time (and corresponding Normalized Elapsed Time) properties which are used to fire the Timed and Normalized Timed Events. &nbsp;DPSF Particle Systems also have these properties, but they are found within the <span style="font-weight: bold;">ParticleSystemEvents.LifetimeData</span> property. &nbsp;So to set a particle system's Lifetime to be one second, you would need to do:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">ParticleSystemEvents.LifetimeData.Lifetime = 1.0f;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleSystemEvents.LifetimeData.Lifetime = 1.0f;</span></p>
 <p>&nbsp;</p>
 <p>The Particle System's Lifetime has one extra feature that the Particle's Lifetime data doesn't, which is the <span style="font-weight: bold;">EndOfLifeOption</span> that lets you specify what should happen when the particle system's Elapsed Time reaches the Lifetime. &nbsp;Possible values for this property include <span style="font-weight: bold;">Nothing</span> (nothing happens, the particle system keeps aging as normal), <span style="font-weight: bold;">Repeat</span> (the particle system's Lifetime is reset to 0.0), and <span style="font-weight: bold;">Destroy</span> (the particle system's Destroy() function is called, killing the particle system).</p>
 <p>&nbsp;</p>
 <p>Tutorial 4's <span style="font-weight: bold;">LoadParticleSystem()</span> function in MyParticleSystem.cs shows how to set this property:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">ParticleSystemEvents.LifetimeData.EndOfLifeOption = </span><span style="font-family: 'Courier New'; color: #2b91af;">CParticleSystemEvents</span><span style="font-family: 'Courier New'; color: #000000;">.</span><span style="font-family: 'Courier New'; color: #2b91af;">EParticleSystemEndOfLifeOptions</span><span style="font-family: 'Courier New'; color: #000000;">.Repeat;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleSystemEvents.LifetimeData.EndOfLifeOption = </span><span style="font-family: 'Courier New'; color: #2b91af;">CParticleSystemEvents</span><span style="font-family: 'Courier New';">.</span><span style="font-family: 'Courier New'; color: #2b91af;">EParticleSystemEndOfLifeOptions</span><span style="font-family: 'Courier New';">.Repeat;</span></p>
 <p>&nbsp;</p>
 <p>The LoadParticleSystem() function then specifies that the emitter should toggle on and off every 0.5 seconds using the following code:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">ParticleSystemEvents.AddTimedEvent(0.0f, UpdateParticleSystemEmitParticlesAutomaticallyOn);</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddTimedEvent(0.5f, UpdateParticleSystemEmitParticlesAutomaticallyOff);</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleSystemEvents.AddTimedEvent(0.0f, UpdateParticleSystemEmitParticlesAutomaticallyOn);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddTimedEvent(0.5f, UpdateParticleSystemEmitParticlesAutomaticallyOff);</span></p>
 <p>&nbsp;</p>
 <p>The <span style="font-weight: bold;">UpdateParticleSystemEmitParticlesAutomaticallyOn()</span> / <span style="font-weight: bold;">Off()</span> Particle System Update functions are provided by the <a href="default_particle_systems.htm">Default Particle System classes</a>, and they turn the Emitter's <span style="font-weight: bold;">EmitParticlesAutomatically</span> property on and off respectfully. &nbsp;So what will happen here is that when the particle system simulation starts running it will have an <span style="font-weight: bold;">ElapsedTime</span> of 0.0, causing the first Event to fire and the emitter to be turned on. &nbsp;Then after 0.5 seconds the second Event will fire, turning the emitter off. &nbsp;Once the particle system's <span style="font-weight: bold;">ElapsedTime</span> reaches it's <span style="font-weight: bold;">Lifetime</span> (i.e. 1.0 second), the ElapsedTime will be reset to 0.0 (since we are using an <span style="font-weight: bold;">EndOfLifeOption</span> of <span style="font-weight: bold;">Repeat</span>), causing the first Event to fire again and the emitter to be turned back on. &nbsp;This cycle will continue to repeat forever. &nbsp;When you run Tutorial 4's code you should notice that particles are not emitted constantly, they are emitted in 0.5 second intervals.</p>
 <p>&nbsp;</p>
 <p>The Normalized Timed Events work similarly. &nbsp;Tutorial 4 defines the Particle System Update function:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New'; color: #000000;"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New'; color: #000000;"> UpdateParticleSystemSwapTexture(</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New'; color: #000000;"> fElapsedTimeInSeconds)</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// If the Star Texture is being used</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">if</span><span style="font-family: 'Courier New'; color: #000000;"> (Texture.Name.Equals(</span><span style="font-family: 'Courier New'; color: #a31515;">"Textures/Star9"</span><span style="font-family: 'Courier New'; color: #000000;">))</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetTexture(</span><span style="font-family: 'Courier New'; color: #a31515;">"Textures/Sun3"</span><span style="font-family: 'Courier New'; color: #000000;">);</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Else the Sun Texture is being used</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">else</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetTexture(</span><span style="font-family: 'Courier New'; color: #a31515;">"Textures/Star9"</span><span style="font-family: 'Courier New'; color: #000000;">);</span></p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">}</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> UpdateParticleSystemSwapTexture(</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';"> fElapsedTimeInSeconds)</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// If the Star Texture is being used</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">if</span><span style="font-family: 'Courier New';"> (Texture.Name.Equals(</span><span style="font-family: 'Courier New'; color: #a31515;">"Textures/Star9"</span><span style="font-family: 'Courier New';">))</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetTexture(</span><span style="font-family: 'Courier New'; color: #a31515;">"Textures/Sun3"</span><span style="font-family: 'Courier New';">);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Else the Sun Texture is being used</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #0000ff;">else</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetTexture(</span><span style="font-family: 'Courier New'; color: #a31515;">"Textures/Star9"</span><span style="font-family: 'Courier New';">);</span></p>
+<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New';">}</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
 <p>&nbsp;</p>
 <p>This function will toggle the <span style="font-weight: bold;">Texture</span> being used to display the particles between the Sun3 texture and the Star9 texture. &nbsp;Tutorial 4 adds this as a Normalized Timed Event in the <span style="font-weight: bold;">LoadParticleSystem()</span> function with the following code:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">ParticleSystemEvents.AddNormalizedTimedEvent(1.0f, UpdateParticleSystemSwapTexture);</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleSystemEvents.AddNormalizedTimedEvent(1.0f, UpdateParticleSystemSwapTexture);</span></p>
 <p>&nbsp;</p>
 <p>This will cause the particle system's Texture to be changed every time the particle system's ElapsedTime reaches its Lifetime (i.e. every 1 second in this Tutorial example).</p>
 <p>&nbsp;</p>
@@ -166,46 +166,46 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>In the <span style="font-weight: bold;">LoadParticleSystem()</span> function, you should notice that before adding any Particle or Particle System Events, all of the Particle and Particle System Events are removed using the lines:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">ParticleEvents.RemoveAllEvents();</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;ParticleSystemEvents.RemoveAllEvents();</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">ParticleEvents.RemoveAllEvents();</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;ParticleSystemEvents.RemoveAllEvents();</span></p>
 <p>&nbsp;</p>
 <p>This is done to ensure that Events are not added twice if the the LoadParticleSystem() function happens to be called again.</p>
 <p>&nbsp;</p>
 <p>You may create several different functions to load the particle system in different ways, and may switch between them at run-time. &nbsp;For example, the tutorial provides a <span style="font-weight: bold;">LoadParticleSystem2()</span> function that is called when the V key is pressed:</p>
 <p>&nbsp;</p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New'; color: #000000;"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New'; color: #000000;"> LoadParticleSystem2()</span></p>
-<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">{</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle Initialization Function</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleInitializationFunction = InitializeParticleProperties;</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">public</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #0000ff;">void</span><span style="font-family: 'Courier New';"> LoadParticleSystem2()</span></p>
+<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">{</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle Initialization Function</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleInitializationFunction = InitializeParticleProperties;</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Remove all Events first so that none are added twice if this function is called again</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.RemoveAllEvents();</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.RemoveAllEvents();</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Remove all Events first so that none are added twice if this function is called again</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.RemoveAllEvents();</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.RemoveAllEvents();</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Allow the Particle's Position, Rotation, and Transparency to be updated each frame</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticlePositionUsingVelocity);</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticleRotationUsingRotationalVelocity);</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticleTransparencyToFadeOutUsingLerp);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Allow the Particle's Position, Rotation, and Transparency to be updated each frame</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticlePositionUsingVelocity);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticleRotationUsingRotationalVelocity);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleEvents.AddEveryTimeEvent(UpdateParticleTransparencyToFadeOutUsingLerp);</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle System's Lifetime and what should happen when it reaches its Lifetime</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.LifetimeData.EndOfLifeOption = </span><span style="font-family: 'Courier New'; color: #2b91af;">CParticleSystemEvents</span><span style="font-family: 'Courier New'; color: #000000;">.</span><span style="font-family: 'Courier New'; color: #2b91af;">EParticleSystemEndOfLifeOptions</span><span style="font-family: 'Courier New'; color: #000000;">.Repeat;</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.LifetimeData.Lifetime = 2.0f;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle System's Lifetime and what should happen when it reaches its Lifetime</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.LifetimeData.EndOfLifeOption = </span><span style="font-family: 'Courier New'; color: #2b91af;">CParticleSystemEvents</span><span style="font-family: 'Courier New';">.</span><span style="font-family: 'Courier New'; color: #2b91af;">EParticleSystemEndOfLifeOptions</span><span style="font-family: 'Courier New';">.Repeat;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.LifetimeData.Lifetime = 2.0f;</span></p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle System's Emitter to toggle on for 0.5 seconds and off for 1.5 seconds</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddTimedEvent(0.0f, UpdateParticleSystemEmitParticlesAutomaticallyOn);</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddTimedEvent(0.5f, UpdateParticleSystemEmitParticlesAutomaticallyOff);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Set the Particle System's Emitter to toggle on for 0.5 seconds and off for 1.5 seconds</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddTimedEvent(0.0f, UpdateParticleSystemEmitParticlesAutomaticallyOn);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddTimedEvent(0.5f, UpdateParticleSystemEmitParticlesAutomaticallyOff);</span></p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Change Textures every time the Particle System's Lifetime is reached</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddNormalizedTimedEvent(1.0f, UpdateParticleSystemSwapTexture);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Change Textures every time the Particle System's Lifetime is reached</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ParticleSystemEvents.AddNormalizedTimedEvent(1.0f, UpdateParticleSystemSwapTexture);</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Setup the Emitter</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Emitter.ParticlesPerSecond = 50;</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Emitter.PositionData.Position = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New'; color: #000000;"> </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New'; color: #000000;">(0, 0, 0);</span></p>
-<p><span style="font-family: 'Courier New'; color: #000000;"> &nbsp; &nbsp; &nbsp;}</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span><span style="font-family: 'Courier New'; color: #008000;">// Setup the Emitter</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Emitter.ParticlesPerSecond = 50;</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Emitter.PositionData.Position = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #2b91af;">Vector3</span><span style="font-family: 'Courier New';">(0, 0, 0);</span></p>
+<p><span style="font-family: 'Courier New';"> &nbsp; &nbsp; &nbsp;}</span></p>
 <p>&nbsp;</p>
 <p>This function removes all of the Events added by LoadParticleSystem() and then adds its own. &nbsp;The original LoadParticleSystem() function will be called when the B key is pressed, restoring the particle system to its original behaviour. &nbsp;Both of these functions use the same Particle Initialization Function, although you can specify different ones if you choose. &nbsp;The differences between LoadParticleSystem() and LoadParticleSystem2() is that LoadParticleSystem() does not rotate the particles and has a Lifetime of 1 second, where LoadParticleSystem2() does rotate the particles and has a Lifetime of 2 seconds. &nbsp;Also, the LoadParticleSystem() function uses the Every Time Event described above to randomly change the Color of new particles, and LoadParticleSystem2() doesn't. &nbsp;Press the V and B keys during the simulation to switch between using these two functions to load different particle system behaviours.</p>
 <p>&nbsp;</p>

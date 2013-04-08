@@ -42,6 +42,20 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 
 <!-- Placeholder for topic body. -->
 <table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p><span style="font-weight: bold;">Version 2.4.0</span></p>
+<p>- Got DPSF working properly on Android using MonoGame and added DPSF Demo for Mono for Android project to show DPSF working on Android.</p>
+<p>- Got DPSF working properly on WinRT using MonoGame and added DPSF Demo for WinRT project to show DPSF working on WinRT.</p>
+<p>- Fixed the DefaultSpriteParticleSystem to use BlendState.NonPremultipled by default so that transparency is drawn.</p>
+<p>- Added try-catch blocks to prevent DPSF from throwing exceptions when moving app window between monitors.</p>
+<p>- Fixed bug where ParticleEmitterCollection's AllEmittersRemoved event was not firing.</p>
+<p>- Updated the Trail particle system included in the DPSF Demo a bit.</p>
+<p>&nbsp;</p>
+<p>Possible Breaking Changes (see <a href="dpsf_2_3_0_to_2_4_0.htm">Updating Your Existing Particle Systems To Newer Versions of DPSF - DPSF 2.3.0 to 2.4.0</a> section for solutions):</p>
+<p>- Changed the ParticleEmitterCollection's Add() function to return back the new ParticleEmitter, rather than the new ParticleEmitter's ID.</p>
+<p>- Fixed the DefaultSpriteParticleSystem to use BlendState.NonPremultipled by default so that transparency is drawn.</p>
+<p>- Renamed IndexBufferReach to IndexBufferShort, since sometimes we need to use the short Index Buffer with the HiDef profile (e.g. with MonoGame for WinRT).</p>
+<p>- Should now check the protected property IsUsingIntegerIndexBuffer to determine if the IndexBuffer or IndexBufferShort should be used (used to check "this.GraphicsDevice.GraphicsProfile == GraphicsProfile.HiDef").</p>
+<p>&nbsp;</p>
 <p><span style="font-weight: bold;">Version 2.3.0</span></p>
 <p>- Fixed bug in Sprite Particle System Templates and Sprite particle systems where they wouldn't use the SpriteBatch passed into the AutoInitialize() function.</p>
 <p>- Added new ExplosionDebrisSpriteParticleSystem class, that shows the implementation differences between a 3D and 2D Sprite Particle System.</p>
@@ -59,7 +73,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>- Fixed bugs to make particle system properly serialize and deserialize.</p>
 <p>- Added feature to skip the splash screen (by default) when debugging so developers don't have to see it every time they run their app.</p>
 <p>&nbsp;</p>
-<p>Possible Breaking Changes (see <a href="dpsf_2_2_2_to_2_3_0.htm">Updating Your Existing Particle Systems To Newer Versions of DPSF - 2.2.2 to 2.3.0</a> section for solutions):</p>
+<p>Possible Breaking Changes (see <a href="dpsf_2_2_2_to_2_3_0.htm">Updating Your Existing Particle Systems To Newer Versions of DPSF - DPSF 2.2.2 to 2.3.0</a> section for solutions):</p>
 <p>- Removed the mcRandomNumber particle system class variable. Everything should now just use the RandomNumber public property.</p>
 <p>- Changed namespace of particle systems in the DPSF Demo from DPSF.ParticleSystems to DPSF_Demo.ParticleSystems.</p>
 <p>- Moved the LerpEmittersPositionAndOrientation and LerpEmittersPositionAndOrientationOnNextUpdate properties from the particle system into the ParticleEmitter class, so that this can be configured for each emitter individually.</p>

@@ -63,7 +63,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>If you like you may define your own function to initialize the particles, allowing full control over the particle's initial property values. &nbsp;Any particle initialization functions you create must follow the <span style="font-weight: bold;">InitializeParticleDelegate</span> prototype, which is:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">public void FunctionName(Particle cParticle);</span> where Particle is the particle class that the particle system is using for its particles.</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-weight: bold;">public void FunctionName(Particle cParticle);</span> where Particle is the particle class that the particle system is using for its particles.</p>
 <p>&nbsp;</p>
 <p>An example of how to do this is shown in the templates by the <span style="font-weight: bold;">InitializeParticleProperties()</span> function.  The naming convention DPSF uses for naming particle initialization functions to make them easy to recognize is that the function name starts with InitializeParticle.  If you do not specify a Particle Initialization Function, when new particles are created their properties will have their default values.</p>
 <p>&nbsp;</p>
