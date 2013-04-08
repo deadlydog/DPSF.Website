@@ -48,11 +48,11 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>An event holds a function pointer to the function that should execute when the event fires. &nbsp;Particle event functions must follow the <span style="font-weight: bold;">UpdateParticleDelegate</span> prototype, which is:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">public void FunctionName(Particle cParticle, float fElapsedTimeInSeconds);</span> where Particle is the particle class that the particle system is using for its particles.</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-weight: bold;">public void FunctionName(Particle cParticle, float fElapsedTimeInSeconds);</span> where Particle is the particle class that the particle system is using for its particles.</p>
 <p>&nbsp;</p>
 <p>Particle system event functions must follow the <span style="font-weight: bold;">UpdateParticleSystemDelegate</span> prototype, which is:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-weight: bold;">public void FunctionName(float fElapsedTimeInSeconds);</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-weight: bold;">public void FunctionName(float fElapsedTimeInSeconds);</span></p>
 <p>&nbsp;</p>
 <p>So when you create new particle or particle system event functions, they must follow the above prototypes. &nbsp;This is shown in each of the <a href="creating_a_new_particle_system_from_a_template.htm#templates">template files</a>. &nbsp;One thing to note however is that the functions do not necessarily have to be public; they can also be private, protected, or internal.</p>
 <p>&nbsp;</p>

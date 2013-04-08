@@ -14,7 +14,7 @@
 <!--
 if (location.search.lastIndexOf("toc=0")<=0) {
   if (parent.frames.length==0) { parent.location.href="index.html?dpsf_1_5_3_0_to_1_5_4_0.htm"; }
-  else { parent.quicksync('a11.6'); }
+  else { parent.quicksync('a11.4'); }
 }
 //-->
 </script>
@@ -51,11 +51,11 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>The virtual AutoInitialize() function has been update to require a 3rd parameter, so you will need to update the overridden AutoInitialize() function in all of your particle systems from:</p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Consolas'; color: #0000ff;">public</span><span style="font-family: 'Consolas';"> </span><span style="font-family: 'Consolas'; color: #0000ff;">override</span><span style="font-family: 'Consolas';"> </span><span style="font-family: 'Consolas'; color: #0000ff;">void</span><span style="font-family: 'Consolas';"> AutoInitialize(</span><span style="font-family: 'Consolas'; color: #2b91af;">GraphicsDevice</span><span style="font-family: 'Consolas';"> cGraphicsDevice, </span><span style="font-family: 'Consolas'; color: #2b91af;">ContentManager</span><span style="font-family: 'Consolas';"> cContentManager)</span></p>
+<p><span style="font-family: 'Consolas'; color: #0000ff;">public</span><span style="font-family: 'Consolas'; color: #000000;"> </span><span style="font-family: 'Consolas'; color: #0000ff;">override</span><span style="font-family: 'Consolas'; color: #000000;"> </span><span style="font-family: 'Consolas'; color: #0000ff;">void</span><span style="font-family: 'Consolas'; color: #000000;"> AutoInitialize(</span><span style="font-family: 'Consolas'; color: #2b91af;">GraphicsDevice</span><span style="font-family: 'Consolas'; color: #000000;"> cGraphicsDevice, </span><span style="font-family: 'Consolas'; color: #2b91af;">ContentManager</span><span style="font-family: 'Consolas'; color: #000000;"> cContentManager)</span></p>
 <p>&nbsp;</p>
 <p>to:</p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Consolas'; color: #0000ff;">public</span><span style="font-family: 'Consolas';"> </span><span style="font-family: 'Consolas'; color: #0000ff;">override</span><span style="font-family: 'Consolas';"> </span><span style="font-family: 'Consolas'; color: #0000ff;">void</span><span style="font-family: 'Consolas';"> AutoInitialize(</span><span style="font-family: 'Consolas'; color: #2b91af;">GraphicsDevice</span><span style="font-family: 'Consolas';"> cGraphicsDevice, </span><span style="font-family: 'Consolas'; color: #2b91af;">ContentManager</span><span style="font-family: 'Consolas';"> cContentManager, </span><span style="font-family: 'Consolas'; color: #2b91af;">SpriteBatch</span><span style="font-family: 'Consolas';"> cSpriteBatch)</span></p>
+<p><span style="font-family: 'Consolas'; color: #0000ff;">public</span><span style="font-family: 'Consolas'; color: #000000;"> </span><span style="font-family: 'Consolas'; color: #0000ff;">override</span><span style="font-family: 'Consolas'; color: #000000;"> </span><span style="font-family: 'Consolas'; color: #0000ff;">void</span><span style="font-family: 'Consolas'; color: #000000;"> AutoInitialize(</span><span style="font-family: 'Consolas'; color: #2b91af;">GraphicsDevice</span><span style="font-family: 'Consolas'; color: #000000;"> cGraphicsDevice, </span><span style="font-family: 'Consolas'; color: #2b91af;">ContentManager</span><span style="font-family: 'Consolas'; color: #000000;"> cContentManager, </span><span style="font-family: 'Consolas'; color: #2b91af;">SpriteBatch</span><span style="font-family: 'Consolas'; color: #000000;"> cSpriteBatch)</span></p>
 <p>&nbsp;</p>
 <p>The new SpriteBatch parameter allows you to pass in a custom SpriteBatch object to use to draw Sprite particle systems, rather than each Sprite particle system using their own SpriteBatch objects. &nbsp;By using a single SpriteBatch object to draw all of the Sprites in your game, proper Sprite depth sorting can be achieved much easier.</p>
 <p>&nbsp;</p>

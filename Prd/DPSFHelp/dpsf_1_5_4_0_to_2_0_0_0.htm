@@ -14,7 +14,7 @@
 <!--
 if (location.search.lastIndexOf("toc=0")<=0) {
   if (parent.frames.length==0) { parent.location.href="index.html?dpsf_1_5_4_0_to_2_0_0_0.htm"; }
-  else { parent.quicksync('a11.5'); }
+  else { parent.quicksync('a11.3'); }
 }
 //-->
 </script>
@@ -56,12 +56,12 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>- if you were using an event to trigger the <span style="font-weight: bold;">UpdateParticleSizeUsingLerp</span> function, change it to trigger the <span style="font-weight: bold;">UpdateParticleWidthAndHeightUsingLerp</span> function.</p>
 <p>- if you were using particle rotation, you must change all of your previous float (i.e. scalar) rotation values to Vector3 rotation values. &nbsp;To do this simply set the particle's rotation to be a new Vector3, supplying zero for the X and Y components, and the previous rotation float for the Z component (since rotations in 2D are always around the Z axis (i.e. roll rotations)). &nbsp;The Orientation3D class also provides some 3D rotation helper functions if needed.</p>
 <p>- add the following EveryTime event to your particle systems initialization: </p>
-<p><span style="font-family: 'Consolas';">ParticleEvents.AddEveryTimeEvent(UpdateParticleToFaceTheCamera, 200);</span></p>
+<p><span style="font-family: 'Consolas'; color: #000000;">ParticleEvents.AddEveryTimeEvent(UpdateParticleToFaceTheCamera, 200);</span></p>
 <p>You may want to change the ExecutionOrder (i.e. 200) to something else if needed. &nbsp;This event should fire after any events that affect the particles' rotation/orientation.</p>
 <p>- coinciding with the above point, each time the particle system is updated you will want to let it know the Camera's new position so that it can rotate the particles to face the camera, giving the illusion that the quads are actually point sprites. &nbsp;So before calling the ParticleSystem.Update() function, you will want to do:</p>
-<p><span style="font-family: 'Consolas';">mcParticleSystem.CameraPosition = sCameraPosition;</span></p>
+<p><span style="font-family: 'Consolas'; color: #000000;">mcParticleSystem.CameraPosition = sCameraPosition;</span></p>
 <p>or if you are updating all of your particle systems at once using a Particle System Manager, then you will want to call the following function before calling the Particle System Manager's Update() function:</p>
-<p><span style="font-family: 'Consolas';">mcParticleSystemManager.SetCameraPositionForAllParticleSystems(sCameraPosition);</span></p>
+<p><span style="font-family: 'Consolas'; color: #000000;">mcParticleSystemManager.SetCameraPositionForAllParticleSystems(sCameraPosition);</span></p>
 <p>&nbsp;</p>
 <p><span style="font-size: 12pt; font-weight: bold;">1b - Converting a Pixel Particle System to a Quad Particle System</span></p>
 <p>If you were using a Pixel particle system, you will likely want to:</p>
@@ -70,12 +70,12 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>- change any instances of <span style="font-weight: bold;">DefaultPixelParticle</span> to be <span style="font-weight: bold;">DefaultQuadParticle</span>.</p>
 <p>- set the particle <span style="font-weight: bold;">Size</span> in the Particle Initialization Function; this should likely be something small, such as 0.3f.</p>
 <p>- add the following EveryTime event to your particle systems initialization: </p>
-<p><span style="font-family: 'Consolas';">ParticleEvents.AddEveryTimeEvent(UpdateParticleToFaceTheCamera, 200);</span></p>
+<p><span style="font-family: 'Consolas'; color: #000000;">ParticleEvents.AddEveryTimeEvent(UpdateParticleToFaceTheCamera, 200);</span></p>
 <p>You may want to change the ExecutionOrder (i.e. 200) to something else if needed. &nbsp;This event should fire after any events that affect the particles' rotation/orientation.</p>
 <p>- coinciding with the above point, each time the particle system is updated you will want to let it know the Camera's new position so that it can rotate the particles to face the camera, giving the illusion that the quads are actually point sprites. &nbsp;So before calling the ParticleSystem.Update() function, you will want to do:</p>
-<p><span style="font-family: 'Consolas';">mcParticleSystem.CameraPosition = sCameraPosition;</span></p>
+<p><span style="font-family: 'Consolas'; color: #000000;">mcParticleSystem.CameraPosition = sCameraPosition;</span></p>
 <p>or if you are updating all of your particle systems at once using a Particle System Manager, then you will want to call the following function before calling the Particle System Manager's Update() function:</p>
-<p><span style="font-family: 'Consolas';">mcParticleSystemManager.SetCameraPositionForAllParticleSystems(sCameraPosition);</span></p>
+<p><span style="font-family: 'Consolas'; color: #000000;">mcParticleSystemManager.SetCameraPositionForAllParticleSystems(sCameraPosition);</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 12pt; font-weight: bold;">2 - Replaced InitializeRenderState() and ResetRenderState() virtual functions with InitializeRenderProperties()</span></p>
@@ -96,8 +96,8 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>While the Xbox 360 never supported the [Serializable] attribute in XNA 3.1, it didn't cause any compiler errors either. &nbsp;In XNA 4.0 the [Serializable] attribute now causes compiler errors in Xbox 360 and Windows Phone projects. &nbsp;So anywhere that you have [Serializable] you will either need to delete the attribute, or change it to the following code so that it only gets included in Windows projects, and not Xbox or Windows Phone projects:</p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Consolas'; color: #0000ff;">#if</span><span style="font-family: 'Consolas';"> (WINDOWS)</span></p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Consolas';">[</span><span style="font-family: 'Consolas'; color: #2b91af;">Serializable</span><span style="font-family: 'Consolas';">]</span></p>
+<p><span style="font-family: 'Consolas'; color: #0000ff;">#if</span><span style="font-family: 'Consolas'; color: #000000;"> (WINDOWS)</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Consolas'; color: #000000;">[</span><span style="font-family: 'Consolas'; color: #2b91af;">Serializable</span><span style="font-family: 'Consolas'; color: #000000;">]</span></p>
 <p><span style="font-family: 'Consolas'; color: #0000ff;">#endif</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -105,8 +105,8 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>If you had a particle system using textures with both opaque and (semi)transparent portions, and were previously using alpha testing, you may notice that they are not drawn in the correct order anymore. &nbsp;Since you cannot simply turn Alpha Testing on anymore in the XNA 4.0 BlendState, you have to either use the AlphaTest Effect (which DPSF doesn't by default), or sort the particles by depth before drawing them. &nbsp;To sort the particles by depth, DPSF now provides 2 functions built into the Quad particle systems;</p>
 <p>&nbsp;</p>
-<p>Particle EveryTimeEvent - <span style="font-family: 'Consolas'; font-weight: bold;">UpdateParticleDistanceFromCameraSquared</span></p>
-<p>Particle System EveryTimeEvent - <span style="font-family: 'Consolas'; font-weight: bold;">UpdateParticleSystemToSortParticlesByDistanceFromCamera</span></p>
+<p>Particle EveryTimeEvent - <span style="font-family: 'Consolas'; font-weight: bold; color: #000000;">UpdateParticleDistanceFromCameraSquared</span></p>
+<p>Particle System EveryTimeEvent - <span style="font-family: 'Consolas'; font-weight: bold; color: #000000;">UpdateParticleSystemToSortParticlesByDistanceFromCamera</span></p>
 <p>&nbsp;</p>
 <p>Using the AlphaTest Effect is less expensive (and thus better to use), but it will only provide proper results for textures that are masks; that have only fully opaque and fully transparent portions (i.e. no semi-transparent parts). &nbsp;If your textures have semi-transparent parts as well, you will want to use the depth sorting approach.</p>
 <p>&nbsp;</p>

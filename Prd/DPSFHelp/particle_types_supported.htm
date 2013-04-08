@@ -46,6 +46,8 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p><span style="font-weight: bold;">Sprites<a name="sprites"></a></span></p>
 <p>&nbsp;</p>
+<p>Because Sprite particles don't use the DPSFDefaultEffect, they are currently the only particle system that may be used on the Windows Phone 7, since the WP7 doesn't support using custom shaders.</p>
+<p>&nbsp;</p>
 <p><span style="text-decoration: underline;">2D Sprites</span></p>
 <p>Sprite particle systems are drawn as a texture in 2D screen coordinates using a SpriteBatch object. &nbsp;Even though these have 2D screen positions, they may also be given a Z value between 0.0 (front) and 1.0 (back) to determine which sprites are drawn in front of other sprites (Z-buffer). &nbsp;Sprites only allow for 2D roll rotations, always face the camera, and must use a texture.</p>
 <p>&nbsp;</p>
