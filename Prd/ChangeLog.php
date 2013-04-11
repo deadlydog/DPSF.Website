@@ -30,7 +30,7 @@
 	<li>Should now check the protected property IsUsingIntegerIndexBuffer to determine if the IndexBuffer or IndexBufferShort should be used (used to check "this.GraphicsDevice.GraphicsProfile == GraphicsProfile.HiDef").</li>
 </ul>
 
-<h3>Version 2.3.0 - September 30, 2012</h3>
+<h3><a href="ArchivedDPSFVersions/DPSF Installer v2.3.0.exe">Version 2.3.0</a> - September 30, 2012</h3>
 <ul>
 	<li>Fixed bug in Sprite Particle System Templates and Sprite particle systems where they wouldn't use the SpriteBatch passed into the AutoInitialize() function.</li>
 	<li>Added new ExplosionDebrisSpriteParticleSystem class, that shows the implementation differences between a 3D and 2D Sprite Particle System.</li>
