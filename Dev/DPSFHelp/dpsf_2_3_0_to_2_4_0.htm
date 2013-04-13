@@ -46,25 +46,25 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>If you were previously doing:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span>int id = Emitters.Add(newEmitter);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;int id = Emitters.Add(newEmitter);</p>
 <p>&nbsp;</p>
 <p>you will need to change it to:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span>int id = Emitters.Add(newEmitter).ID;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;int id = Emitters.Add(newEmitter).ID;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 12pt; font-weight: bold;">2 - Fixed the DefaultSpriteParticleSystem to draw transparency.</span></p>
 <p>&nbsp;</p>
-<p>The DefaultSpriteParticleSystem was updated to use BlendState.NonPremultipled by default so that transparency is drawn. &nbsp;So if you were inheriting from this particle system, your particle may no longer be fully opaque. &nbsp;To fix this problem you can either:</p>
+<p><span style="color: #000000;">The DefaultSpriteParticleSystem was updated to use BlendState.NonPremultipled by default so that transparency is drawn. &nbsp;So if you were inheriting from this particle system, your particle may no longer be fully opaque. &nbsp;To fix this problem you can either:</span></p>
 <p>&nbsp;</p>
-<p>1. Update your particle system's Initialize Particle Function and Particle Update Functions to ensure that they do not change the particle color's alpha value (i.e. transparency value).</p>
+<p><span style="color: #000000;">1. Update your particle system's Initialize Particle Function and Particle Update Functions to ensure that they do not change the particle color's alpha value (i.e. transparency value).</span></p>
 <p>&nbsp;</p>
-<p>2. Add the following code to your particle system to reintroduce the old bug so that your particles are drawn the same way as before.</p>
+<p><span style="color: #000000;">2. Add the following code to your particle system to reintroduce the old bug so that your particles are drawn the same way as before.</span></p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span>protected override void InitializeRenderProperties()</p>
-<p><span style="width:48px">&nbsp;</span>{</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;RenderProperties.BlendState = DPSFHelper.CloneBlendState(BlendState.AlphaBlend);</p>
-<p><span style="width:48px">&nbsp;</span>}</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000000;">protected override void InitializeRenderProperties()</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000000;">{</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000000;">RenderProperties.BlendState = DPSFHelper.CloneBlendState(BlendState.AlphaBlend);</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #000000;">}</span></p>
 <p>&nbsp;</p>
 <p>Obviously option #1 is preferred/recommended approach.</p>
 <p>&nbsp;</p>
@@ -77,7 +77,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p><span style="font-size: 12pt; font-weight: bold;">4 - When writing to the Index Buffer, you should check IsUsingIntegerIndexBuffer instead of using "this.GraphicsDevice.GraphicsProfile == GraphicsProfile.HiDif".</span></p>
 <p>&nbsp;</p>
-<p>If you were writing your own Vertex Update Function, you may need to update how it checks which Index Buffer to write to. &nbsp;It should now simply check the particle system's IsUsingIntegerIndexBuffer property to determine whether to write to the IndexBuffer or IndexBufferShort array.</p>
+<p><span style="color: #000000;">If you were writing your own Vertex Update Function, you may need to update how it checks which Index Buffer to write to. &nbsp;It should now simply check the particle system's IsUsingIntegerIndexBuffer property to determine whether to write to the IndexBuffer or IndexBufferShort array.</span></p>
 <p>This change was made because even though MonoGame for WinRT does not use the Reach profile, it still needs to use the Short Index Buffer array.</p>
 <p>&nbsp;</p>
 

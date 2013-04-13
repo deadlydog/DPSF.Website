@@ -34,6 +34,11 @@ the DPSF Demo solution showing how to create many different particle systems.</p
 
 
 <!-- Version Specific Highlights go here -->
+<h3>Highlights to versions 2.4.1 (XNA 4) - April 13, 2013</h3>
+<ul>
+	<li>Small maintence release to fix critical Xbox bug introduced in version 2.3.0 and include new DPSFWinRTAsDrawableGameComponent.dll.</li>
+</ul>
+
 <h3>Highlights to versions 2.4.0 (XNA 4) - April 2, 2013</h3>
 <ul>
 	<li>Got DPSF working properly on Android using MonoGame and added DPSF Demo for Mono for Android project to show DPSF working on Android.</li>

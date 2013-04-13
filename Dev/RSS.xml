@@ -12,6 +12,12 @@
 <!-- New items get posted at the top of the list here -->	
 
 	<item>
+       <title>DPSF 2.4.1 (XNA 4) Released</title>
+       <link>http://www.xnaparticles.com/Download.php</link> 
+       <description>April 13, 2013 - DPSF version 2.4.1 has been released. This fixes a critical Xbox bug that was introduced in version 2.3.0.</description>
+    </item>
+
+	<item>
        <title>DPSF 2.4.0 (XNA 4) Released</title>
        <link>http://www.xnaparticles.com/Download.php</link> 
        <description>April 2, 2013 - DPSF version 2.4.0 has been released (finally). Now supports Android and WinRT via MonoGame!</description>

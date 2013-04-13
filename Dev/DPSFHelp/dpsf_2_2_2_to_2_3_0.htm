@@ -55,9 +55,9 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p><span style="font-size: 12pt; font-weight: bold;">3 - Moved the LerpEmittersPositionAndOrientation and LerpEmittersPositionAndOrientationOnNextUpdate properties from the particle system class to the Emitter class</span></p>
 <p>&nbsp;</p>
 <p>Now that DPSF supports multiple emitters per particle system, these 2 properties have been moved from the particle system class into the Emitter class so that they can be configured individually for each emitter in the particle system. &nbsp;To make it work like it did before just change:</p>
-<p><span style="width:48px">&nbsp;</span>particleSystem.LerpEmittersPositionAndOrienation = newValue;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;particleSystem.LerpEmittersPositionAndOrienation = newValue;</p>
 <p>to:</p>
-<p><span style="width:48px">&nbsp;</span>particleSystem.Emitter.LerpEmittersPositionAndOrientation = newValue;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;particleSystem.Emitter.LerpEmittersPositionAndOrientation = newValue;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 12pt; font-weight: bold;">4 - Changed the MagnetList property on the default particle systems from a LinkedList&lt;DefaultParticleSystemMagnet&gt; to a List&lt;DefaultParticleSystemMagnet&gt;</span></p>
@@ -71,98 +71,98 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>For example, the old DefaultTexturedQuadParticleVertex was changed from:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span>public struct DefaultTexturedQuadParticleVertex : IDPSFParticleVertex</p>
-<p><span style="width:48px">&nbsp;</span>{</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// The Position of the vertex in 3D space. The position of this vertex</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// relative to the quads other three vertices determines the Particle's orientation.</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;public Vector3 Position;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;public struct DefaultTexturedQuadParticleVertex : IDPSFParticleVertex</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// The Position of the vertex in 3D space. The position of this vertex</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// relative to the quads other three vertices determines the Particle's orientation.</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public Vector3 Position;</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// The Coordinate of the Texture that this Vertex corresponds to</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;public Vector2 TextureCoordinate;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// The Coordinate of the Texture that this Vertex corresponds to</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public Vector2 TextureCoordinate;</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// The Color to tint the Texture</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;public Color Color;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// The Color to tint the Texture</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public Color Color;</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;// Describe the vertex structure used to display a Particle</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">private static readonly VertexElement[] msVertexElements =</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;{</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(0, VertexElementFormat.Vector3,</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;VertexElementUsage.Position, 0),</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Describe the vertex structure used to display a Particle</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">private static readonly VertexElement[] msVertexElements =</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(0, VertexElementFormat.Vector3,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;VertexElementUsage.Position, 0),</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(12, VertexElementFormat.Vector2,</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VertexElementUsage.TextureCoordinate, 0),</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(12, VertexElementFormat.Vector2,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VertexElementUsage.TextureCoordinate, 0),</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(20, VertexElementFormat.Color,</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VertexElementUsage.Color, 0)</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;};</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(20, VertexElementFormat.Color,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VertexElementUsage.Color, 0)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">// The size of the vertex structure in bytes</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">private const int miSizeInBytes = 24;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">// The size of the vertex structure in bytes</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">private const int miSizeInBytes = 24;</span></p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// &lt;summary&gt;</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// An array describing the attributes of each Vertex</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// &lt;/summary&gt;</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">public VertexElement[] VertexElements</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">{</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">get { return DefaultTexturedQuadParticleVertex.msVertexElements; }</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">}</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// &lt;summary&gt;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// An array describing the attributes of each Vertex</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// &lt;/summary&gt;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">public VertexElement[] VertexElements</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">{</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">get { return DefaultTexturedQuadParticleVertex.msVertexElements; }</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">}</span></p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// &lt;summary&gt;</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// The Size of one Vertex in Bytes</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// &lt;/summary&gt;</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">public int SizeInBytes</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">{</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">get { return DefaultTexturedQuadParticleVertex.miSizeInBytes; }</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">}</span></p>
-<p><span style="width:48px">&nbsp;</span>}</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// &lt;summary&gt;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// The Size of one Vertex in Bytes</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">/// &lt;/summary&gt;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">public int SizeInBytes</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">{</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">get { return DefaultTexturedQuadParticleVertex.miSizeInBytes; }</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #ff0000;">}</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
 <p>&nbsp;</p>
 <p>to:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span>public struct DefaultTexturedQuadParticleVertex : IDPSFParticleVertex</p>
-<p><span style="width:48px">&nbsp;</span>{</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// The Position of the vertex in 3D space. The position of this vertex</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// relative to the quads other three vertices determines the Particle's orientation.</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;public Vector3 Position;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;public struct DefaultTexturedQuadParticleVertex : IDPSFParticleVertex</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// The Position of the vertex in 3D space. The position of this vertex</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// relative to the quads other three vertices determines the Particle's orientation.</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public Vector3 Position;</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// The Coordinate of the Texture that this Vertex corresponds to</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;public Vector2 TextureCoordinate;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// The Coordinate of the Texture that this Vertex corresponds to</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public Vector2 TextureCoordinate;</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// The Color to tint the Texture</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;public Color Color;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// The Color to tint the Texture</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/// &lt;/summary&gt;</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public Color Color;</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;// Describe the vertex structure used to display a Particle</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">private static readonly VertexDeclaration vertexDeclaration = new VertexDeclaration</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;(</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(0, VertexElementFormat.Vector3,</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;VertexElementUsage.Position, 0),</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// Describe the vertex structure used to display a Particle</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">private static readonly VertexDeclaration vertexDeclaration = new VertexDeclaration</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(0, VertexElementFormat.Vector3,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;VertexElementUsage.Position, 0),</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(12, VertexElementFormat.Vector2,</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VertexElementUsage.TextureCoordinate, 0),</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(12, VertexElementFormat.Vector2,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VertexElementUsage.TextureCoordinate, 0),</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(20, VertexElementFormat.Color,</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VertexElementUsage.Color, 0)</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;};</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new VertexElement(20, VertexElementFormat.Color,</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; VertexElementUsage.Color, 0)</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;};</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">/// &lt;summary&gt;</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">/// An array describing the attributes of each Vertex</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">/// &lt;/summary&gt;</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">public VertexDeclaration VertexDeclaration</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">{</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">get { return DefaultTexturedQuadParticleVertex.vertexDeclaration; }</span></p>
-<p><span style="width:48px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">}</span></p>
-<p><span style="width:48px">&nbsp;</span>}</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">/// &lt;summary&gt;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">/// An array describing the attributes of each Vertex</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">/// &lt;/summary&gt;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">public VertexDeclaration VertexDeclaration</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">{</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">get { return DefaultTexturedQuadParticleVertex.vertexDeclaration; }</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="background-color: #9bbb59;">}</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
 <p>&nbsp;</p>
 <p>So you can see that the VertexElement[] array gets changed to a VertexDeclaration, the VertexElements property is removed and replaced with the VertexDeclaration property, and the SizeInBytes variable and property is removed as it is no longer needed.</p>
 <p>&nbsp;</p>

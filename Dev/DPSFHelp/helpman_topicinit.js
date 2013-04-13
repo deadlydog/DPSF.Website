@@ -1,4 +1,4 @@
-/* ---------------- Script © 2006-2009 EC Software ----------------
+/* ---------------- Script © 2006-2007 EC Software ----------------
 This script was created by Help & Manual. It is designed for use 
 in combination with the output of Help & Manual and must not
 be used outside this context.     http://www.helpandmanual.com
@@ -63,25 +63,6 @@ function HMToggleExpand(obj, value)
 	obj.setAttribute("hm.state", value ? "1" : "0");
 }
 
-function HMSearchCheck(obj) 
-{
-  var foundHilite = window.location.search.lastIndexOf("zoom_highlight") > 0;
-  if (!foundHilite) {
-    var fontTags = obj.getElementsByTagName("FONT");
-    if (fontTags.length > 0) {
-      var hStyle = "";
-      for (var cCheck = 0; cCheck < fontTags.length; cCheck++) {
-        hStyle = fontTags[cCheck].style.cssText;
-        if (hStyle.indexOf("BACKGROUND-COLOR") == 0) {
-	  foundHilite = true;
-          break; 
-        }
-      }
-    }
-  }
-  return foundHilite;     
-}
-
 function HMInitToggle()
 {
     if (document.getElementById) {
@@ -98,7 +79,7 @@ function HMInitToggle()
 			img.src = HMInitToggle.arguments[i+1];
 		}
 	}
-	mustExpand = HMSearchCheck(node); 
+	mustExpand = window.location.search.lastIndexOf("zoom_highlight") > 0;
 	if (node.nodeName.toLowerCase() == "img") {
 	   var aLink = node.parentNode;
 	   if (aLink.nodeName.toLowerCase() == "a") { 
@@ -107,11 +88,6 @@ function HMInitToggle()
 	   }
 	}
 	HMToggles[HMToggles.length] = node;
-        if (mustExpand) { 
-          node.setAttribute("hm.state", "1"); 
-          var nodeImg = document.getElementById('$'+node.getAttribute("id")+'_ICON');
-          if (nodeImg) { HMToggleExpand(nodeImg, true); }
-        }
 	HMToggleExpand(node, ((node.getAttribute("hm.state") == "1") || mustExpand));
     }
 }
