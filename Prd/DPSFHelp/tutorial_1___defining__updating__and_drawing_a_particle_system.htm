@@ -55,25 +55,25 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>Now that we have a particle system class defined (in the template we just included in our project) we can create an instance of it and start drawing it to the screen. &nbsp;Before we do that though there is one more thing we want to do, which is include the DPSF namespace so that we don't have to put <span style="font-weight: bold;">DPSF.</span> in front of all of the DPSF classes and functions. &nbsp;So near the top of your Game1.cs file (or whatever your main file is called) we want to add the following, below the rest of the <span style="font-weight: bold;">using</span> statements:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">using</span><span style="font-family: 'Courier New';"> DPSF;</span></p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #0000ff;">using</span><span style="font-family: 'Courier New';"> DPSF.ParticleSystems;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #0000ff;">using</span><span style="font-family: 'Courier New'; color: #000000;"> DPSF;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #0000ff;">using</span><span style="font-family: 'Courier New'; color: #000000;"> DPSF.ParticleSystems;</span></p>
 <p>&nbsp;</p>
-<p><span style="font-family: 'Courier New';">We include DPSF.ParticleSystems as well because the template files define the particle systems to be in the DPSF.ParticleSystems namespace.</span></p>
+<p><span style="font-family: 'Courier New'; color: #000000;">We include DPSF.ParticleSystems as well because the template files define the particle systems to be in the DPSF.ParticleSystems namespace.</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 18pt;">Defining a new particle system</span></p>
 <p>&nbsp;</p>
 <p>The name of the particle system class in the template file is <span style="font-weight: bold;">DefaultTexturedQuadParticleSystemTemplate</span> (unless you have changed it as mentioned in the <a href="creating_a_new_particle_system_from_a_template.htm#gettingnewparticlesystemintoyourproject">template instructions</a>, in which case use that class name), so to define a variable to hold the particle system we give the Game1 class the following variable:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New'; color: #2b91af;">DefaultTexturedQuadParticleSystemTemplate</span><span style="font-family: 'Courier New';"> mcParticleSystem = </span><span style="font-family: 'Courier New'; color: #0000ff;">null</span><span style="font-family: 'Courier New';">;</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #2b91af;">DefaultTexturedQuadParticleSystemTemplate</span><span style="font-family: 'Courier New'; color: #000000;"> mcParticleSystem = </span><span style="font-family: 'Courier New'; color: #0000ff;">null</span><span style="font-family: 'Courier New'; color: #000000;">;</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 18pt;">Initializing the particle system</span></p>
 <p>&nbsp;</p>
 <p>To create an instance of the the particle system add the following code to the Game classes <span style="font-weight: bold;">LoadContent()</span> function:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New';"> </span><span style="font-family: 'Courier New'; color: #2b91af;">DefaultTexturedQuadParticleSystemTemplate</span><span style="font-family: 'Courier New';">(</span><span style="font-family: 'Courier New'; color: #0000ff;">this</span><span style="font-family: 'Courier New';">);</span></p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Consolas';">mcParticleSystem.AutoInitialize(</span><span style="font-family: 'Consolas'; color: #0000ff;">this</span><span style="font-family: 'Consolas';">.GraphicsDevice, </span><span style="font-family: 'Consolas'; color: #0000ff;">this</span><span style="font-family: 'Consolas';">.Content, </span><span style="font-family: 'Consolas'; color: #0000ff;">null</span><span style="font-family: 'Consolas';">);</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">mcParticleSystem = </span><span style="font-family: 'Courier New'; color: #0000ff;">new</span><span style="font-family: 'Courier New'; color: #000000;"> </span><span style="font-family: 'Courier New'; color: #2b91af;">DefaultTexturedQuadParticleSystemTemplate</span><span style="font-family: 'Courier New'; color: #000000;">(</span><span style="font-family: 'Courier New'; color: #0000ff;">this</span><span style="font-family: 'Courier New'; color: #000000;">);</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Consolas'; color: #000000;">mcParticleSystem.AutoInitialize(</span><span style="font-family: 'Consolas'; color: #0000ff;">this</span><span style="font-family: 'Consolas'; color: #000000;">.GraphicsDevice, </span><span style="font-family: 'Consolas'; color: #0000ff;">this</span><span style="font-family: 'Consolas'; color: #000000;">.Content, </span><span style="font-family: 'Consolas'; color: #0000ff;">null</span><span style="font-family: 'Consolas'; color: #000000;">);</span></p>
 <p>&nbsp;</p>
 <p>Here we create an instance of the particle system, and then call <span style="font-weight: bold;">AutoInitialize()</span> to set it up so that it is ready to use.</p>
 <p>&nbsp;</p>
@@ -82,7 +82,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>When we exit the game we want the particle system to be destroyed, so add the following code to the Game classes <span style="font-weight: bold;">UnloadContent()</span> function:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem.Destroy();</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">mcParticleSystem.Destroy();</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 18pt;">Updating the particle system</span></p>
@@ -93,9 +93,9 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>Then to update the particles in the particle system we need to call the particle system's <span style="font-weight: bold;">Update()</span> function. &nbsp;So in the Game class's <span style="font-weight: bold;">Update()</span> function add:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem.SetWorldViewProjectionMatrices(</span><span style="font-family: 'Courier New'; color: #2b91af;">Matrix</span><span style="font-family: 'Courier New';">.Identity, sViewMatrix, sProjectionMatrix);</span></p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Consolas';">mcParticleSystem.SetCameraPosition(cameraPosition);</span></p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem.Update((</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New';">)gameTime.ElapsedGameTime.TotalSeconds);</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">mcParticleSystem.SetWorldViewProjectionMatrices(</span><span style="font-family: 'Courier New'; color: #2b91af;">Matrix</span><span style="font-family: 'Courier New'; color: #000000;">.Identity, sViewMatrix, sProjectionMatrix);</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Consolas'; color: #000000;">mcParticleSystem.SetCameraPosition(cameraPosition);</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">mcParticleSystem.Update((</span><span style="font-family: 'Courier New'; color: #0000ff;">float</span><span style="font-family: 'Courier New'; color: #000000;">)gameTime.ElapsedGameTime.TotalSeconds);</span></p>
 <p>&nbsp;</p>
 <p>where Matrix.Identity, sViewMatrix, and sProjectionMatrix are the World, View, and Projection matrices respectfully, and cameraPosition is the current position of the camera.</p>
 <p>&nbsp;</p>
@@ -104,7 +104,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <p>&nbsp;</p>
 <p>To actually draw the particle system, in the Game classes <span style="font-weight: bold;">Draw()</span> function add:</p>
 <p>&nbsp;</p>
-<p><span style="width:48px">&nbsp;</span><span style="font-family: 'Courier New';">mcParticleSystem.Draw();</span></p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-family: 'Courier New'; color: #000000;">mcParticleSystem.Draw();</span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><span style="font-size: 18pt;">Remarks</span></p>

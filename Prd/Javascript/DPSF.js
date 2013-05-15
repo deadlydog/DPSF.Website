@@ -199,7 +199,10 @@ function DPSF()
 		Authors[33] = '- @CaranElmoth, via Twitter'
 		Quotes[34] = '"It\'s really a great and easy to use particle system."'
 		Authors[34] = '- TesseractGames'
-
+		Quotes[35] = '"Good job with this particle system! I\'ve found it very easy to use, and your documentation is great! Thanks for making it."'
+		Authors[35] = '- kokkivos'
+		Quotes[35] = '"DPSF is very easy to use with other frameworks too, like BepuPhysics. I didn\'t have to redesign any code to incorporate it :)"'
+		Authors[35] = '- kokkivos'
 		
 		// Get a handle to the UserQuotesList
 		var hList = document.getElementById('UserQuotesList');

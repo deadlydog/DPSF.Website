@@ -13,7 +13,13 @@
 
 <h2>XNA 4 Versions of DPSF</h2>
 
-<h3>Version 2.4.0 - April 2, 2013</h3>
+<h3>Version 2.4.1 - April 13, 2013</h3>
+<ul>
+	<li>Fixed blocking Xbox bug introduced in v2.3.0 where a divide by zero exception was always thrown when running on the Xbox, making DPSF unusable on the Xbox.</li>
+    <li>Now also build the DPSFWinRTAsDrawableGameComponent.dll.</li>
+</ul>
+
+<h3><a href="ArchivedDPSFVersions/DPSF Installer v2.4.0.exe">Version 2.4.0</a> - April 2, 2013</h3>
 <ul>
 	<li>Got DPSF working properly on Android using MonoGame and added DPSF Demo for Mono for Android project to show DPSF working on Android.</li>
 	<li>Got DPSF working properly on WinRT using MonoGame and added DPSF Demo for WinRT project to show DPSF working on WinRT.</li>

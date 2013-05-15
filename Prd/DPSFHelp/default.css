@@ -1,6 +1,6 @@
 /* Text Styles */
 hr { color: #000000}
-body, table, tr, th /* Normal */
+body, table /* Normal */
 {
  font-size: 10pt;
  font-family: 'Arial';

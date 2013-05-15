@@ -1,4 +1,4 @@
-/* ---------------- Script © 2005-2009 EC Software -----------------
+/* ---------------- Script © 2005-2008 EC Software -----------------
    This script was created by Help & Manual and is part of the      
    "Browser-based Help" export format. This script is designed for  
    use in combination with the output of Help & Manual and must not 
@@ -19,7 +19,7 @@ function fullcollapse() { switchall(false); }
 function levelexpand(divID) {
     var div = hmnavigation.document.getElementById(divID).firstChild;
     while (div) {
-       if (div.id) switchdiv(div, div.id, true);
+       switchdiv(div, div.id, true);
        div = div.nextSibling;
     }
 }
@@ -126,18 +126,16 @@ function collapseunfocused(tree, selectedID) {
 function quicksync(aID) {
     if (aID != "") {
        var tree = hmnavigation.document.getElementById("tree");
-       if (tree) {
-          if (!tocselecting) {
-             var thisspan = hmnavigation.document.getElementById(aID);
-             if (thisspan) {
-                var selectionchanged = hilight("s"+aID.substring(1,aID.length));
-                intoview(thisspan, tree, selectionchanged);
-             }
+       if ((tree) && (!tocselecting)) {
+          var thisspan = hmnavigation.document.getElementById(aID);
+          if (thisspan) {
+             var selectionchanged = hilight("s"+aID.substring(1,aID.length));
+             intoview(thisspan, tree, selectionchanged);
           }
-          if (autocollapse) {
-             if (currentselection) collapseunfocused(tree, currentselection.id);
-             else collapseunfocused(tree, "");
-          }
+       }
+       if (autocollapse) {
+          if (currentselection) collapseunfocused(tree, currentselection.id);
+          else collapseunfocused(tree, "");
        }
     }
     tocselecting = false;
@@ -146,22 +144,20 @@ function quicksync(aID) {
 function lazysync(topicID) {
     if (topicID != "") {
        var tree = hmnavigation.document.getElementById("tree");
-       if (tree) {
-          if (!tocselecting) {
-             var array = new Array(0);
-             var items = tree.getElementsByTagName("a");
-             for(var i = 0; i < items.length; i++) {
-                if (items[i].href.substring(items[i].href.lastIndexOf("/")+1,items[i].href.length)==topicID) {
-                   var selectionchanged = hilight("s"+items[i].id.substring(1,items[i].id.length));
-                   intoview(items[i], tree, selectionchanged);
-                   break;
-                }
+       if ((tree) && (!tocselecting)) {
+          var array = new Array(0);
+          var items = tree.getElementsByTagName("a");
+          for(var i = 0; i < items.length; i++) {
+             if (items[i].href.substring(items[i].href.lastIndexOf("/")+1,items[i].href.length)==topicID) {
+                var selectionchanged = hilight("s"+items[i].id.substring(1,items[i].id.length));
+                intoview(items[i], tree, selectionchanged);
+                break;
              }
           }
-          if (autocollapse) {
-             if (currentselection) collapseunfocused(tree, currentselection.id);
-             else collapseunfocused(tree, "");
-          }
+       }
+       if (autocollapse) {
+          if (currentselection) collapseunfocused(tree, currentselection.id);
+          else collapseunfocused(tree, "");
        }
     }
     tocselecting = false;
