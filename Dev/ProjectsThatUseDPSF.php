@@ -83,6 +83,20 @@ All Your Creeps (which released in January for XBLIG) uses DPSF, and made my lif
 <br /><span class="QuoteAuthor">- Daniel Frandsen, President of Red Button Games</span></p>
 
 <div class="Clear"></div>
+
+<h3><a href="http://marketplace.xbox.com/en-US/Product/Bulkhead/66acd000-77fe-1000-9115-d80258550cc2" target="_blank">Bulkhead</a> and <a href="http://marketplace.xbox.com/en-US/Product/BULKHEAD-Survival/66acd000-77fe-1000-9115-d80258550d58" target="_blank">Bulkhead Survival (XBox)</a></h3>
+<iframe align="right" width="560" height="315" src="//www.youtube.com/embed/fenqXoj_rWo" frameborder="0" allowfullscreen></iframe>
+<p><span class="Quote">"Bulkhead uses lots of DPSF particles :) It has multiplayer online, sort of a capture the flag variant. It has singleplayer missions to search for the artifact too where rival AI enemies try and stop you. Thanks again for DPSF."</span>
+<br /><span class="QuoteAuthor">- ruggy</span></p>
+
+<div class="Clear"></div>
+
+<h3><a href="http://www.yargis.com" target="_blank">Yargis (PC) (XBox and Mobile in development)</a></h3>
+<iframe align="left" width="560" height="315" src="http://www.youtube.com/embed/2bH8-nmkdQk" frameborder="0" allowfullscreen></iframe>
+<p><span class="Quote">"We used DPSF for all of our particles :)"
+<br /><span class="QuoteAuthor">- Jeff Minnis, Founder and CEO of Jeff Computers, StudyX, and PlazSoft</span></p>
+
+<div class="Clear"></div>
 </span></div>
 
 <?php include '_Footer.php'; ?>

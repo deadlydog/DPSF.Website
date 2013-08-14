@@ -11,4 +11,4 @@ The following should be done on the dev DPSF website (dev.xnaparticles.com):
 8 - Update the product info on upload.cnet.com so that it downloads the new version of DPSF (from dev.xnaparticles.com) so that it can host the download.
 
 9 - It takes a few days for upload.com to approve the new version and host it for download, so don't update the live DPSF website site until you receive confirmation that they are hosting the new version. After receiving confirmation that upload.com is hosting the new version of DPSF, update the live DPSF website (www.xnaparticles.com) using the updated dev website (dev.xnaparticles.com).
-10 - Announcement of the new version on Twitter, Facebook, and the DPSF Forums (http://forums.xnaparticles.com).
+10 - Announcement of the new version on Twitter, Facebook, and the DPSF Forums (http://forums.xnaparticles.com). Try and include hashtags #XNA #GameDev #XBLIG #Xbox #indie #MonoGame
