@@ -203,6 +203,8 @@ function DPSF()
 		Authors[35] = '- kokkivos'
 		Quotes[35] = '"DPSF is very easy to use with other frameworks too, like BepuPhysics. I didn\'t have to redesign any code to incorporate it :)"'
 		Authors[35] = '- kokkivos'
+		Quotes[36] = '"DPSF has been amazing for particles. We love it because it works great on PC and Xbox."'
+		Authors[36] = '- Jeff Minnis'
 		
 		// Get a handle to the UserQuotesList
 		var hList = document.getElementById('UserQuotesList');

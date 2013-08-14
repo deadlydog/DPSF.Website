@@ -93,7 +93,7 @@ All Your Creeps (which released in January for XBLIG) uses DPSF, and made my lif
 
 <h3><a href="http://www.yargis.com" target="_blank">Yargis (PC) (XBox and Mobile in development)</a></h3>
 <iframe align="left" width="560" height="315" src="http://www.youtube.com/embed/2bH8-nmkdQk" frameborder="0" allowfullscreen></iframe>
-<p><span class="Quote">"We used DPSF for all of our particles :)"
+<p><span class="Quote">"DPSF has been amazing for particles. We used DPSF for all of our particles :) We love it because it works great on PC and XBOX. We could not have made Yargis so amazing without it!"
 <br /><span class="QuoteAuthor">- Jeff Minnis, Founder and CEO of Jeff Computers, StudyX, and PlazSoft</span></p>
 
 <div class="Clear"></div>
