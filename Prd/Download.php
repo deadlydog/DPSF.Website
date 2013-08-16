@@ -12,12 +12,19 @@
 <div id="Content">
 <h1>Download DPSF</h1>
 
-<p>The DPSF installer contains the dll (dynamic link library), setup manual / help file (includes tutorials and source code), templates to start from, and 
-the DPSF Demo solution showing how to create many different particle systems.</p>
+<p>The DPSF installer contains the assemlies (i.e. dlls), setup manual / help file (includes tutorials and source code), templates to start from, and 
+the DPSF Demo solution showing how to create many different particle systems. If you only want the assemblies, they are available on Nuget.</p>
 
-<a href="http://games.softpedia.com/progClean/DPSF-Clean-37725.html"><img src="Images/SoftpediaFreeAward.gif" class="NoBorder" style="float:right; margin-top:-1.5em;" alt="Softpedia 100% Spyware/Virus/Malware Free Award" title="Softpedia 100% Spyware/Virus/Malware Free Award" /></a>
+<!-- <a href="http://games.softpedia.com/progClean/DPSF-Clean-37725.html"><img src="Images/SoftpediaFreeAward.gif" class="NoBorder" style="float:right; margin-top:-1.5em;" alt="Softpedia 100% Spyware/Virus/Malware Free Award" title="Softpedia 100% Spyware/Virus/Malware Free Award" /></a> -->
 
-<span style="float:right; margin-right:10em;" title="Donate and support DPSF">
+<span style="float:right;margin-right:5em" title="Get just the DPSF assemblies from NuGet">
+	<a href="http://www.nuget.org/packages/DPSF/">
+        <div align="center"><img src="Images/NuGetProjectLogo.png" class="NoBorder Centered" alt="DPSF on NuGet" /></div>
+        DPSF on NuGet
+    </a>
+</span>
+
+<span style="float:right; margin-right:5em;" title="Donate and support DPSF">
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="Centered">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="5785518">
@@ -26,10 +33,11 @@ the DPSF Demo solution showing how to create many different particle systems.</p
 </form>
 </span>
 
-<p class="Centered" title="Download DPSF">
+<p class="Centered" title="Download the DPSF installer">
 <!-- <a href="http://dpsf.freeforums.org/download-dpsf-f4.html"> -->
-<a href="http://download.cnet.com/DPSF/3000-2121_4-10910185.html?part=dl-&subj=dl&tag=button">
-<img src="http://i.i.com.com/cnwk.1d/i/dl/button/dl-button_a.gif" alt="Get it from CNET Download.com!" height="60" width="150" align="center" border="0" style="display:inline"></a>
+<!-- <a href="http://download.cnet.com/DPSF/3000-2121_4-10910185.html?part=dl-&subj=dl&tag=button">
+<img src="http://i.i.com.com/cnwk.1d/i/dl/button/dl-button_a.gif" alt="Get DPSF from CNET Download.com!" height="60" width="150" align="center" border="0" style="display:inline"></a> -->
+<a href="DPSF Installer.zip"><img src="Images/Download.png" class="NoBorder" alt="Download DPSF" /></a>
 </p>
 
 

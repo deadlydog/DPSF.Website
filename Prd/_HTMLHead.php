@@ -5,5 +5,5 @@
 <script type="text/javascript" src="/Javascript/DPSF.js"></script>
 
 <!-- Used for the vertical news ticker for User Quotes -->
-<script type="text/javascript" src="/Javascript/jquery-1.6.2.min.js" ></script>
+<script type="text/javascript" src="/Javascript/jquery-1.10.2.min.js" ></script>
 <script type="text/javascript" src="/Javascript/jcarousellite_1.0.1.min.js"></script>
