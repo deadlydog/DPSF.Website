@@ -33,26 +33,26 @@ the DPSF Demo solution showing how to create many different particle systems. If
 </form>
 </span>
 
-<p class="Centered" title="Download the DPSF installer">
+<div class="Centered SmallFont" title="Download the DPSF installer">
 <!-- <a href="http://dpsf.freeforums.org/download-dpsf-f4.html"> -->
 <!-- <a href="http://download.cnet.com/DPSF/3000-2121_4-10910185.html?part=dl-&subj=dl&tag=button">
 <img src="http://i.i.com.com/cnwk.1d/i/dl/button/dl-button_a.gif" alt="Get DPSF from CNET Download.com!" height="60" width="150" align="center" border="0" style="display:inline"></a> -->
-<a href="DPSF Installer.zip"><img src="Images/Download.png" class="NoBorder" alt="Download DPSF" /></a>
-</p>
+    <span>
+        <a href="DPSF Installer.zip"><img src="Images/Download.png" class="NoBorder" alt="Download DPSF" /></a>
+        <p class="NoMarginOrPadding">Over 6,000 downloads</p>
+    </span>
+</div>
 
 
 <!-- Version Specific Highlights go here -->
-<h3>Highlights to versions 2.4.1 (XNA 4) - April 13, 2013</h3>
+<h3>Highlights to versions 2.5.0 (XNA 4) - August 31, 2013</h3>
 <ul>
-	<li>Small maintenance release to fix critical Xbox bug introduced in version 2.3.0 and include new DPSFWinRTAsDrawableGameComponent.dll.</li>
-</ul>
-
-<h3>Highlights to versions 2.4.0 (XNA 4) - April 2, 2013</h3>
-<ul>
-	<li>Got DPSF working properly on Android using MonoGame and added DPSF Demo for Mono for Android project to show DPSF working on Android.</li>
-	<li>Got DPSF working properly on WinRT using MonoGame and added DPSF Demo for WinRT project to show DPSF working on WinRT.</li>
-	<li>Changed the DefaultSpriteParticleSystem to use BlendState.NonPremultipled by default so that transparency is drawn.</li>
-	<li>Added try-catch blocks to prevent DPSF from throwing exceptions when moving app window between monitors.</li>
+	<li>Fixed Android bug where IndexOutOfRangeException would be thrown on some Android devices, depending on their hardware capabilities.</li>
+	<li>Added SetEnabledStateForAllParticleSystems(), SetVisibleStateForAllParticleSystems(), and SetEnabledAndVisibleStatesForAllParticleSystems() functions to the ParticleSystemManager class.</li>
+	<li>Added new DisabledWithEarlyRecycling memory management mode to allow recycling the oldest active particle when we want to add a new particle, but have no more memory available for it.</li>
+	<li>Added new DPSFDebugWarningExceptions that are only thrown when debugging and are meant to help users catch when they do not have DPSF setup ideally.</li>
+	<li>Created iOS friendly DPSF assemblies, but still not fully tested due to lack of Mac hardware required for testing.</li>
+	<li>Fixed performance bug in ParticleEmitterCollection, as it was generating garbage for the Garbage Collector every time the Emitters and IDs properties were accessed (impacted Xbox greatly).</li>
 </ul>
 
 <p>See the <a href="ChangeLog.php">full change log and download older versions of DPSF here</a>, including XNA 3.1 compatible versions.</p>

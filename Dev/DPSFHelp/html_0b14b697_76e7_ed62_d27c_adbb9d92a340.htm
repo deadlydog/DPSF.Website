@@ -46,7 +46,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <div style="margin: 0px 0px 0px 15px;"><a name="devlangsmenuvisualbasiclabel"></a></div>
 <div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 15px;"><table cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
 <tr style="text-align:left;vertical-align:top;">
-<td valign="middle"><p><a name="memberoptionsdropdown"></a><span style="font-size: 9pt; font-family: 'Verdana'; color: #8c8c8c;">DPSF API Documentation</span></p>
+<td valign="middle"><div><a name="memberoptionsdropdown"></a><span style="font-size: 9pt; font-family: 'Verdana'; color: #8c8c8c;">DPSF API Documentation</span></div>
 </td>
 </tr>
 <tr style="text-align:left;vertical-align:top;">
@@ -91,6 +91,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000066;"><a href="html_638c7551_a542_40e3_7e20_f5ed56e6d266.htm">ActiveParticles</a></span></p>
 </td>
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">Get / Protected Set a Linked List whose Nodes point to the Active Particles.</span></p>
+<p style="margin: 10px 0px 0px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: New particles are added to the start of the Active Particles list, so by default the oldest particles should be at the end.</span></p>
 <p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: The Protected Set option is only provided to allow the order of the LinkedListNodes to be changed, changing the update and drawing order of the Particles. Be sure that all of the original LinkedListNodes (and only the original LinkedListNodes, no more) obtained from the Get are included; they may only be rearranged. If they are not, there may (and probably will) be unexpected results.</span></p>
 <p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">(Inherited from <a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">DPSF</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;"><a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">&lt;(Of &lt;(&lt;'</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">Particle, Vertex</span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;"><a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">&gt;)&gt;)&gt;</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">.)</span></p>
 </td>
@@ -200,7 +201,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">The Emitter is used to automatically generate new Particles.</span></p>
 <p style="margin: 10px 0px 0px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: This is just a pointer to one of the ParticleEmitters in the Emitters ParticleEmitterCollection.</span></p>
 <p style="margin: 10px 0px 0px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: If you set this to a ParticleEmitter that is not in the Emitters collection, it will be added to it.</span></p>
-<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">During the particle system Update() this Emitter property is updated to point to the ParticleEmitter in the Emitters collection that is being updated.</span></p>
+<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">During the particle system Update() this Emitter property is updated to point to the ParticleEmitter in the Emitters collection that is being updated. This allows you to use this property to reference the ParticleEmitter that is actually being used to add particles to the particle system.</span></p>
 <p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">(Inherited from <a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">DPSF</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;"><a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">&lt;(Of &lt;(&lt;'</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">Particle, Vertex</span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;"><a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">&gt;)&gt;)&gt;</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">.)</span></p>
 </td>
 </tr>
@@ -221,7 +222,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;"><a href="html_ae11cebb_37e6_315e_7366_c03cc4feb7a2.htm">Enabled</a></span></p>
 </td>
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">Get / Set if this Particle System should Update itself and its Particles or not.</span></p>
-<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: Setting this to false causes the Update() function to not update anything.</span></p>
+<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: Setting this to false causes the Update() function to not update anything, including the BeforeUpdate() and AfterUpdate() function not to be called.</span></p>
 <p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">(Inherited from <a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">DPSF</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;"><a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">&lt;(Of &lt;(&lt;'</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">Particle, Vertex</span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;"><a href="html_c84e9172_4451_cbc8_dac0_e425a0b68cd2.htm">&gt;)&gt;)&gt;</a></span><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">.)</span></p>
 </td>
 </tr>

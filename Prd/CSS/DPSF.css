@@ -98,9 +98,20 @@ h3
 	border-style:none;
 }
 
+.NoMarginOrPadding
+{
+	margin:0em;
+	padding:0em;
+}
+
 .Centered
 {
 	text-align:center;
+}
+
+.SmallFont
+{
+	font-size:0.75em;
 }
 
 ul.FAQ

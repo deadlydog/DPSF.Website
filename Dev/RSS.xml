@@ -12,6 +12,12 @@
 <!-- New items get posted at the top of the list here -->	
 
 	<item>
+       <title>DPSF 2.5.0 (XNA 4) Released</title>
+       <link>http://www.xnaparticles.com/Download.php</link> 
+       <description>August 31, 2013 - DPSF version 2.5.0 has been released. Fixed memory leak that was introduced in version 2.2.2 (impacts Xbox significantly), introduced new memory management mode, fixed Android bug affecting certain hardware devices, and introduced beta iOS version of DPSF assembly.</description>
+    </item>
+
+	<item>
        <title>DPSF 2.4.1 (XNA 4) Released</title>
        <link>http://www.xnaparticles.com/Download.php</link> 
        <description>April 13, 2013 - DPSF version 2.4.1 has been released. This fixes a critical Xbox bug that was introduced in version 2.3.0.</description>

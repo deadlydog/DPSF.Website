@@ -42,8 +42,23 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 
 <!-- Placeholder for topic body. -->
 <table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p><span style="font-weight: bold; color: #000000;">Version 2.5.0</span></p>
+<p><span style="color: #000000;">- Fixed Android bug where IndexOutOfRangeException would be thrown on some Android devices, depending on their hardware capabilities.</span></p>
+<p><span style="color: #000000;">- Added SetEnabledStateForAllParticleSystems(), SetVisibleStateForAllParticleSystems(), and SetEnabledAndVisibleStatesForAllParticleSystems() functions to the ParticleSystemManager class.</span></p>
+<p><span style="color: #000000;">- Added 2 more helper functions for updating particle transparency, UpdateParticleTransparencyWithQuickFadeIn and UpdateParticleTransparencyWithQuickFadeOut.</span></p>
+<p><span style="color: #000000;">- Added new DisabledWithEarlyRecycling memory management mode to allow recycling the oldest active particle when we want to add a new particle, but have no more memory available for it.</span></p>
+<p><span style="color: #000000;">- Added new DPSFDebugWarningExceptions that are only thrown when debugging and are meant to help users catch when they do not have DPSF setup ideally.</span></p>
+<p><span style="color: #000000;">- Changed the provided Default Particle System classes to be 'abstract', as they are meant to be inherited and not instanced directly.</span></p>
+<p><span style="color: #000000;">- Added more functionality to the MouseManager to easily detect when a mouse button is or was just pressed/released.</span></p>
+<p><span style="color: #000000;">- Created iOS friendly DPSF assemblies, but still not fully tested due to lack of Mac hardware required for testing.</span></p>
+<p><span style="color: #000000;">- Fixed performance bug in ParticleEmitterCollection, as it was generating garbage for the Garbage Collector every time the Emitters and IDs properties were accessed.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #000000;">Possible Breaking Changes:</span></p>
+<p><span style="color: #000000;">- In the ParticleEmitterCollection class, changed the Emitters property to return an ICollection instead of an IList, and the IDs property to return a ReadOnlyCollection instead of an IList.</span></p>
+<p>&nbsp;</p>
 <p><span style="font-weight: bold; color: #000000;">Version 2.4.1</span></p>
-<p><span style="color: #000000;">- Fixed blocking Xbox bug where a divide by zero exception was always thrown when running on the Xbox, making DPSF unusable on the Xbox.</span></p>
+<p><span style="color: #000000;">- Fixed blocking Xbox bug introduced in v2.3.0 where a divide by zero exception was always thrown when running on the Xbox, making DPSF unusable on the Xbox.</span></p>
+<p><span style="color: #000000;">- Now also build the DPSFWinRTAsDrawableGameComponent.dll.</span></p>
 <p>&nbsp;</p>
 <p><span style="font-weight: bold; color: #000000;">Version 2.4.0</span></p>
 <p><span style="color: #000000;">- Got DPSF working properly on Android using MonoGame and added DPSF Demo for Mono for Android project to show DPSF working on Android.</span></p>

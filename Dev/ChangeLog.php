@@ -13,7 +13,21 @@
 
 <h2>XNA 4 Versions of DPSF</h2>
 
-<h3>Version 2.4.1 - April 13, 2013</h3>
+<h3>Version 2.5.0 - August 31, 2013</h3>
+<ul>
+	<li>Fixed Android bug where IndexOutOfRangeException would be thrown on some Android devices, depending on their hardware capabilities.</li>
+	<li>Added SetEnabledStateForAllParticleSystems(), SetVisibleStateForAllParticleSystems(), and SetEnabledAndVisibleStatesForAllParticleSystems() functions to the ParticleSystemManager class.</li>
+	<li>Added 2 more helper functions for updating particle transparency, UpdateParticleTransparencyWithQuickFadeIn and UpdateParticleTransparencyWithQuickFadeOut.</li>
+	<li>Added new DisabledWithEarlyRecycling memory management mode to allow recycling the oldest active particle when we want to add a new particle, but have no more memory available for it.</li>
+	<li>Added new DPSFDebugWarningExceptions that are only thrown when debugging and are meant to help users catch when they do not have DPSF setup ideally.</li>
+	<li>Changed the provided Default Particle System classes to be 'abstract', as they are meant to be inherited and not instanced directly.</li>
+	<li>Added more functionality to the MouseManager to easily detect when a mouse button is or was just pressed/released.</li>
+	<li>Created iOS friendly DPSF assemblies, but still not fully tested due to lack of Mac hardware required for testing.</li>
+	<li>Fixed performance bug in ParticleEmitterCollection, as it was generating garbage for the Garbage Collector every time the Emitters and IDs properties were accessed.</li>
+</ul>
+
+
+<h3><a href="ArchivedDPSFVersions/DPSF Installer v2.4.1.exe">Version 2.4.1</a> - April 13, 2013</h3>
 <ul>
 	<li>Fixed blocking Xbox bug introduced in v2.3.0 where a divide by zero exception was always thrown when running on the Xbox, making DPSF unusable on the Xbox.</li>
     <li>Now also build the DPSFWinRTAsDrawableGameComponent.dll.</li>

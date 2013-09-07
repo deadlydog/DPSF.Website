@@ -26,9 +26,9 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 
 <!-- Placeholder for topic body. -->
 <table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
-<div style="background: #ffffff;"><a name="collapsealllabel"></a><img src="collapse_all.gif" width="9" height="9" border="0" alt="collapse_all"></div>
-<p style="background: #ffffff;"><a name="devlangsdropdown"></a><img src="expand_all.gif" width="9" height="9" border="0" alt="expand_all"></p>
-<div style="background: #ffffff;"><a name="expandalllabel"></a><img src="collapse_all.gif" width="9" height="9" border="0" alt="collapse_all"><img src="expand_all.gif" width="9" height="9" border="0" alt="expand_all"><img src="dropdown.gif" width="9" height="11" border="0" alt="dropdown"><img src="dropdownhover.gif" width="9" height="11" border="0" alt="dropdownHover"><img src="copycode.gif" width="15" height="15" border="0" alt="copycode"><img src="copycodehighlight.gif" width="15" height="15" border="0" alt="copycodeHighlight"></div>
+<p style="background: #ffffff;"><a name="collapsealllabel"></a><img src="collapse_all.gif" width="9" height="9" border="0" alt="collapse_all"></p>
+<div style="background: #ffffff;"><a name="devlangsdropdown"></a><img src="expand_all.gif" width="9" height="9" border="0" alt="expand_all"></div>
+<p style="background: #ffffff;"><a name="expandalllabel"></a><img src="collapse_all.gif" width="9" height="9" border="0" alt="collapse_all"><img src="expand_all.gif" width="9" height="9" border="0" alt="expand_all"><img src="dropdown.gif" width="9" height="11" border="0" alt="dropdown"><img src="dropdownhover.gif" width="9" height="11" border="0" alt="dropdownHover"><img src="copycode.gif" width="15" height="15" border="0" alt="copycode"><img src="copycodehighlight.gif" width="15" height="15" border="0" alt="copycodeHighlight"></p>
 <div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"><table width="100%" cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
 <tr style="text-align:left;vertical-align:top;">
 <td valign="middle"><p><img src="collapse_all.gif" width="9" height="9" border="0" alt="collapse_all"><span style="font-family: 'Verdana'; color: #0000ff;"> Collapse AllExpand All &nbsp; &nbsp; </span><img src="dropdown.gif" width="9" height="11" border="0" alt="dropdown"><span style="font-family: 'Verdana'; color: #0000ff;"> </span><span style="font-family: 'Verdana'; color: #0000ff;">Code: All Code: Multiple Code: C# Code: Visual Basic Code: Visual C++ &nbsp; &nbsp; </span><img src="dropdown.gif" width="9" height="11" border="0" alt="dropdown"><span style="font-family: 'Verdana'; color: #0000ff;"> </span><span style="font-family: 'Verdana'; color: #0000ff;">Members: Show All Members: Filtered Members: Filtered Members: Filtered </span></p>
@@ -57,7 +57,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <div><a name="headertablerow1"></a><span style="font-size: 17pt; color: #000000;">(</span></div>
 <div><a name="runningheadertext"></a><span style="font-size: 17pt; color: #000000;">&lt;</span></div>
 <div><a name="headertablerow2"></a><span style="font-size: 17pt; color: #000000;">'</span></div>
-<p><a name="nsrtitle"></a><span style="font-size: 17pt; font-style: italic; color: #000000;">Particle</span><span style="font-size: 17pt; color: #000000;">, </span><span style="font-size: 17pt; font-style: italic; color: #000000;">Vertex</span><span style="font-size: 17pt; color: #000000;">&gt;)&gt;)&gt;</span><span style="font-size: 17pt; color: #000000;"> Properties</span></p>
+<div><a name="nsrtitle"></a><span style="font-size: 17pt; font-style: italic; color: #000000;">Particle</span><span style="font-size: 17pt; color: #000000;">, </span><span style="font-size: 17pt; font-style: italic; color: #000000;">Vertex</span><span style="font-size: 17pt; color: #000000;">&gt;)&gt;)&gt;</span><span style="font-size: 17pt; color: #000000;"> Properties</span></div>
 </td>
 </tr>
 <tr style="text-align:left;vertical-align:top;">
@@ -91,6 +91,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000066;"><a href="html_638c7551_a542_40e3_7e20_f5ed56e6d266.htm">ActiveParticles</a></span></p>
 </td>
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">Get / Protected Set a Linked List whose Nodes point to the Active Particles.</span></p>
+<p style="margin: 10px 0px 0px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: New particles are added to the start of the Active Particles list, so by default the oldest particles should be at the end.</span></p>
 <p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: The Protected Set option is only provided to allow the order of the LinkedListNodes to be changed, changing the update and drawing order of the Particles. Be sure that all of the original LinkedListNodes (and only the original LinkedListNodes, no more) obtained from the Get are included; they may only be rearranged. If they are not, there may (and probably will) be unexpected results.</span></p>
 </td>
 </tr>
@@ -180,7 +181,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">The Emitter is used to automatically generate new Particles.</span></p>
 <p style="margin: 10px 0px 0px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: This is just a pointer to one of the ParticleEmitters in the Emitters ParticleEmitterCollection.</span></p>
 <p style="margin: 10px 0px 0px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: If you set this to a ParticleEmitter that is not in the Emitters collection, it will be added to it.</span></p>
-<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">During the particle system Update() this Emitter property is updated to point to the ParticleEmitter in the Emitters collection that is being updated.</span></p>
+<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">During the particle system Update() this Emitter property is updated to point to the ParticleEmitter in the Emitters collection that is being updated. This allows you to use this property to reference the ParticleEmitter that is actually being used to add particles to the particle system.</span></p>
 </td>
 </tr>
 <tr style="text-align:left;vertical-align:top;">
@@ -199,7 +200,7 @@ if (location.search.lastIndexOf("toc=0")<=0) {
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;"><a href="html_ae11cebb_37e6_315e_7366_c03cc4feb7a2.htm">Enabled</a></span></p>
 </td>
 <td valign="top" bgcolor="#f7f7ff" style="background-color:#f7f7ff; border: solid 1px #a0a0a0;"><p><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">Get / Set if this Particle System should Update itself and its Particles or not.</span></p>
-<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: Setting this to false causes the Update() function to not update anything.</span></p>
+<p style="margin: 10px 0px 5px 0px;"><span style="font-size: 9pt; font-family: 'Verdana'; color: #000000;">NOTE: Setting this to false causes the Update() function to not update anything, including the BeforeUpdate() and AfterUpdate() function not to be called.</span></p>
 </td>
 </tr>
 <tr style="text-align:left;vertical-align:top;">
