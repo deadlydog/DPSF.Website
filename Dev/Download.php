@@ -39,7 +39,6 @@ the DPSF Demo solution showing how to create many different particle systems. If
 <img src="http://i.i.com.com/cnwk.1d/i/dl/button/dl-button_a.gif" alt="Get DPSF from CNET Download.com!" height="60" width="150" align="center" border="0" style="display:inline"></a> -->
     <span>
         <a href="DPSF Installer.zip"><img src="Images/Download.png" class="NoBorder" alt="Download DPSF" /></a>
-        <p class="NoMarginOrPadding">Over 6,000 downloads</p>
     </span>
 </div>
 

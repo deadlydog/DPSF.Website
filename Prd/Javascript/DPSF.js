@@ -205,6 +205,8 @@ function DPSF()
 		Authors[35] = '- kokkivos'
 		Quotes[36] = '"DPSF has been amazing for particles. We love it because it works great on PC and Xbox."'
 		Authors[36] = '- Jeff Minnis'
+		Quotes[37] = 'I\'ve always enjoyed working with DPSF - great product and well documented. Thanks!'
+		Authors[37] = '- kevinfob'
 		
 		// Get a handle to the UserQuotesList
 		var hList = document.getElementById('UserQuotesList');

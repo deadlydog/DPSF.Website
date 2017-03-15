@@ -12,7 +12,7 @@
 <div id="Content">
 <h1>What is DPSF</h1>
 
-<p>DPSF (Dynamic Particle System Framework) is a tried and tested, free <strong>programmer's</strong> tool for creating custom particle systems in <strong>XNA</strong> quickly and easily.</p>
+<p>DPSF (Dynamic Particle System Framework) is a tried and tested, free <strong>programmer's</strong> tool for creating custom particle systems in <strong>XNA</strong> quickly and easily. As of August 2016, DPSF is now open source and you can <a href="https://github.com/deadlydog/DPSF-XNA">check it out on GitHub</a>.</p>
 
 <p>Unlike other particle system APIs / libraries, DPSF is flexible and allows you to code your own custom behaviors into the particle system; <strong>You are not limited
 to only using the parameters provided by the framework</strong>. You can create and control your own particle properties to make just about any effect you can imagine.</p>

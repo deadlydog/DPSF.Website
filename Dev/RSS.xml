@@ -11,6 +11,12 @@
     
 <!-- New items get posted at the top of the list here -->	
 
+    <item>
+       <title>DPSF is now Open Source</title>
+       <link>https://github.com/deadlydog/DPSF-XNA</link> 
+       <description>August 22, 2016 - DPSF is now open source and available on GitHub. Feel free to poke around and submit a pull request.</description>
+    </item>
+
 	<item>
        <title>DPSF 2.5.0 (XNA 4) Released</title>
        <link>http://www.xnaparticles.com/Download.php</link> 
