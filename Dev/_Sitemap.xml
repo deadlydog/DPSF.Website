@@ -10,6 +10,9 @@
 		<loc>http://www.xnaparticles.com/Contact.php</loc>
 	</url>
 	<url>
+		<loc>http://www.xnaparticles.com/DemoVideos.php</loc>
+	</url>
+	<url>
 		<loc>http://www.xnaparticles.com/Donate.php</loc>
 	</url>
 	<url>
@@ -26,8 +29,5 @@
 	</url>
 	<url>
 		<loc>http://www.xnaparticles.com/Support.php</loc>
-	</url>
-	<url>
-		<loc>http://www.xnaparticles.com/Videos.php</loc>
 	</url>
 </urlset>
