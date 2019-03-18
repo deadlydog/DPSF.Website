@@ -16,11 +16,11 @@
 
 <p>These videos show only a small fraction of effects that may be created using DPSF. You can create just about any effect you can imagine using DPSF; If you can code it, you can make it.</p>
 
-<iframe width="425" height="349" src="http://www.youtube.com/embed/ciuk6evv4_U" frameborder="0" allowfullscreen></iframe>
-<iframe width="425" height="349" src="http://www.youtube.com/embed/JbW5edVNaRI" frameborder="0" allowfullscreen></iframe>
+<iframe width="425" height="349" src="https://www.youtube.com/embed/ciuk6evv4_U" frameborder="0" allowfullscreen></iframe>
+<iframe width="425" height="349" src="https://www.youtube.com/embed/JbW5edVNaRI" frameborder="0" allowfullscreen></iframe>
 <br /><br />
-<iframe width="425" height="349" src="http://www.youtube.com/embed/HwMjyVB9EB4" frameborder="0" allowfullscreen></iframe>
-<iframe width="425" height="349" src="http://www.youtube.com/embed/5U57qmhJgaY" frameborder="0" allowfullscreen></iframe>
+<iframe width="425" height="349" src="https://www.youtube.com/embed/HwMjyVB9EB4" frameborder="0" allowfullscreen></iframe>
+<iframe width="425" height="349" src="https://www.youtube.com/embed/5U57qmhJgaY" frameborder="0" allowfullscreen></iframe>
 
 </span></div>
 
