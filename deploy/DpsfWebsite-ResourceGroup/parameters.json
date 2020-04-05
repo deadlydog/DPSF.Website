@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"sites_DpsfWebsite_name": {
+			"value": null
+		},
+		"components_DpsfWebsite_ApplicationInsights_name": {
+			"value": null
+		},
+		"webtests_ping_dpsfwebsite_landing_page_dpsfwebsite_applicationinsights_name": {
+			"value": null
+		},
+		"metricalerts_ping_dpsfwebsite_landing_page_dpsfwebsite_applicationinsights_name": {
+			"value": null
+		},
+		"smartdetectoralertrules_failure_anomalies___dpsfwebsite_applicationinsights_name": {
+			"value": null
+		},
+		"actiongroups_migration_ag1_externalid": {
+			"value": null
+		},
+		"actiongroups_migration_ag3_externalid": {
+			"value": null
+		},
+		"actiongroups_notify_dan_action_group_externalid": {
+			"value": null
+		},
+		"serverfarms_PersonalSitesAppServicePlan_externalid": {
+			"value": null
+		}
+	}
+}
