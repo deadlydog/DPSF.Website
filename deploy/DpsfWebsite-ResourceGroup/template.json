@@ -66,7 +66,7 @@
 			"name": "[parameters('webtests_ping_dpsfwebsite_landing_page_dpsfwebsite_applicationinsights_name')]",
 			"location": "[parameters('location')]",
 			"tags": {
-				"hidden-link:/subscriptions/42f8591c-9fd1-47ac-95bb-7c32858bf1cd/resourceGroups/DpsfWebsite-ResourceGroup/providers/microsoft.insights/components/DpsfWebsite-ApplicationInsights": "Resource"
+				"hidden-link:/subscriptions/42f8591c-9fd1-47ac-95bb-7c32858bf1cd/resourceGroups/DpsfWebsite/providers/microsoft.insights/components/DpsfWebsite-ApplicationInsights": "Resource"
 			},
 			"properties": {
 				"SyntheticMonitorId": "[parameters('webtests_ping_dpsfwebsite_landing_page_dpsfwebsite_applicationinsights_name')]",
@@ -305,8 +305,8 @@
 				"[resourceId('microsoft.insights/components', parameters('components_DpsfWebsite_ApplicationInsights_name'))]"
 			],
 			"tags": {
-				"hidden-link:/subscriptions/42f8591c-9fd1-47ac-95bb-7c32858bf1cd/resourcegroups/DpsfWebsite-ResourceGroup/providers/microsoft.insights/components/DpsfWebsite-ApplicationInsights": "Resource",
-				"hidden-link:/subscriptions/42f8591c-9fd1-47ac-95bb-7c32858bf1cd/resourcegroups/DpsfWebsite-ResourceGroup/providers/microsoft.insights/webtests/ping dpsfwebsite landing page-dpsfwebsite-applicationinsights": "Resource"
+				"hidden-link:/subscriptions/42f8591c-9fd1-47ac-95bb-7c32858bf1cd/resourcegroups/DpsfWebsite/providers/microsoft.insights/components/DpsfWebsite-ApplicationInsights": "Resource",
+				"hidden-link:/subscriptions/42f8591c-9fd1-47ac-95bb-7c32858bf1cd/resourcegroups/DpsfWebsite/providers/microsoft.insights/webtests/ping dpsfwebsite landing page-dpsfwebsite-applicationinsights": "Resource"
 			},
 			"properties": {
 				"description": "[concat('Automatically created alert rule for availability test \"', parameters('metricalerts_ping_dpsfwebsite_landing_page_dpsfwebsite_applicationinsights_name'), '\"')]",
