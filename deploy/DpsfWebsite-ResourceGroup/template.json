@@ -37,6 +37,13 @@
 		"serverfarms_PersonalSitesAppServicePlan_externalid": {
 			"defaultValue": "/subscriptions/42f8591c-9fd1-47ac-95bb-7c32858bf1cd/resourceGroups/SharedResources-ResourceGroup/providers/Microsoft.Web/serverfarms/PersonalSitesAppServicePlan",
 			"type": "String"
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "[resourceGroup().location]",
+			"metadata": {
+				"description": "Location for all resources."
+			}
 		}
 	},
 	"variables": {
@@ -46,7 +53,7 @@
 			"type": "microsoft.insights/components",
 			"apiVersion": "2015-05-01",
 			"name": "[parameters('components_DpsfWebsite_ApplicationInsights_name')]",
-			"location": "eastus",
+			"location": "[parameters('location')]",
 			"kind": "web",
 			"properties": {
 				"Application_Type": "web",
@@ -57,7 +64,7 @@
 			"type": "microsoft.insights/webtests",
 			"apiVersion": "2015-05-01",
 			"name": "[parameters('webtests_ping_dpsfwebsite_landing_page_dpsfwebsite_applicationinsights_name')]",
-			"location": "eastus",
+			"location": "[parameters('location')]",
 			"tags": {
 				"hidden-link:/subscriptions/42f8591c-9fd1-47ac-95bb-7c32858bf1cd/resourceGroups/DpsfWebsite-ResourceGroup/providers/microsoft.insights/components/DpsfWebsite-ApplicationInsights": "Resource"
 			},
@@ -101,7 +108,7 @@
 			"type": "Microsoft.Web/sites",
 			"apiVersion": "2018-11-01",
 			"name": "[parameters('sites_DpsfWebsite_name')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"kind": "app",
 			"properties": {
 				"enabled": true,
@@ -180,7 +187,7 @@
 			"type": "Microsoft.Web/sites/config",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/web')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -253,7 +260,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/1461578721152852')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -271,7 +278,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/1461578721199115')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -289,7 +296,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/451553152393284')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -307,7 +314,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/451553152422634')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -325,7 +332,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/461553152730285')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -343,7 +350,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/461553152762088')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -361,7 +368,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/471553153615810')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -379,7 +386,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/471553153652594')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -397,7 +404,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/67426993-b5a7-4279-9329-1815f1975138')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -415,7 +422,7 @@
 			"type": "Microsoft.Web/sites/deployments",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/ab18c636-4897-45ed-8f09-7ccd6422bdb8')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -433,7 +440,7 @@
 			"type": "Microsoft.Web/sites/hostNameBindings",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/', parameters('sites_DpsfWebsite_name'), '.azurewebsites.net')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -446,7 +453,7 @@
 			"type": "Microsoft.Web/sites/hostNameBindings",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/www.xnaparticles.com')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
@@ -459,7 +466,7 @@
 			"type": "Microsoft.Web/sites/hostNameBindings",
 			"apiVersion": "2018-11-01",
 			"name": "[concat(parameters('sites_DpsfWebsite_name'), '/xnaparticles.com')]",
-			"location": "East US",
+			"location": "[parameters('location')]",
 			"dependsOn": [
 				"[resourceId('Microsoft.Web/sites', parameters('sites_DpsfWebsite_name'))]"
 			],
