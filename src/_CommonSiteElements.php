@@ -1,18 +1,18 @@
 <!-- Link this Google Adsense account to the Analyatics account -->
 <script type="text/javascript">
-window.google_analytics_uacct = "UA-2386298-5";
+window.google_analytics_uacct = "G-QB79CDM62V";
 </script>
 
 <div id="ContentWrapper">
     <div id="Title">
         <img class="Logo" src="/Images/DPSFLogo.png" alt="DPSF (Dynamic Particle System Framework)" title="Dynamic Particle System Framework" />
-        
+
         <!-- News Ticker Demo taken from: http://www.webdesignbooth.com/create-a-vertical-scrolling-news-ticker-with-jquery-and-jcarousel-lite/ -->
         <!-- Script is started from _Footer.php -->
         <div id="UserQuotes" class="jcarousel-container">
             <ul id="UserQuotesList" />
         </div>
-        
+
         <span class="Icons">
             <a href="RSS.xml"><img class="Stacked" src="/Images/RSS-icon.png" alt="RSS" title="RSS Feed for DPSF" /></a>
             <a href="http://www.facebook.com/pages/DPSF/165492630135404?v=page_getting_started#!/pages/DPSF/165492630135404" target="_blank"><img class="Stacked" src="Images/Facebook-icon.png" alt="DPSF on Facebook" title="DPSF Facebook Page" /></a>
@@ -21,7 +21,7 @@ window.google_analytics_uacct = "UA-2386298-5";
     </div>
 
     <div class="Clear"></div>
-    
+
     <div id="MenuAndContent">
         <div id="Menu">
             <ul>
