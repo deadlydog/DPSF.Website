@@ -1,4 +1,4 @@
-<!-- Link this Google Adsense account to the Analyatics account -->
+<!-- Link this Google Adsense account to the Analytics account -->
 <script type="text/javascript">
 window.google_analytics_uacct = "G-QB79CDM62V";
 </script>
@@ -25,13 +25,17 @@ window.google_analytics_uacct = "G-QB79CDM62V";
     <div id="MenuAndContent">
         <div id="Menu">
             <ul>
-                <li><a href="index.php" <?php if ($SelectedTab == "WhatIsDPSF"){print("class='SelectedTab'");}?>>What is DPSF</a></li>
-                <li><a href="Download.php" <?php if ($SelectedTab == "Download"){print("class='SelectedTab'");}?>>Download</a></li>
-                <li><a href="ProjectsThatUseDPSF.php" <?php if ($SelectedTab == "ProjectsThatUseDPSF"){print("class='SelectedTab'");}?>>Projects that use DPSF</a></li>
-                <li><a href="DemoVideos.php" <?php if ($SelectedTab == "Videos"){print("class='SelectedTab'");}?>>Demo Videos</a></li>
-                <li><a href="FAQ.php" <?php if ($SelectedTab == "FAQ"){print("class='SelectedTab'");}?>>FAQ</a></li>
-                <li><a href="Support.php" <?php if ($SelectedTab == "Support"){print("class='SelectedTab'");}?>>Support</a></li>
-                <li><a href="Contact.php" <?php if ($SelectedTab == "Contact"){print("class='SelectedTab'");}?>>Contact</a></li>
+                <li><a href="index.php" id="WhatIsDPSFTab">>What is DPSF</a></li>
+                <li><a href="Download.php" id="DownloadTab">>Download</a></li>
+                <li><a href="ProjectsThatUseDPSF.php" id="ProjectsThatUseDPSFTab">>Projects that use DPSF</a></li>
+                <li><a href="DemoVideos.php" id="VideosTab">>Demo Videos</a></li>
+                <li><a href="FAQ.php" id="FAQTab">>FAQ</a></li>
+                <li><a href="Support.php" id="SupportTab">>Support</a></li>
+                <li><a href="Contact.php" id="ContactTab">>Contact</a></li>
             </ul>
+            <!-- Set the selected tab based on the global Javascript variable, which should be set before injecting this file. -->
+            <script lang="javascript">
+              document.getElementById(CommonSiteElements_SelectedTab).className = "SelectedTab";
+            </script>
         </div>
         <div class="Clear"></div>
