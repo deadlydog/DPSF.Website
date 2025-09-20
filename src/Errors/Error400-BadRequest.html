@@ -8,8 +8,7 @@
 </head>
 
 <body>
-<?php include '../_CommonSiteElements.php'; ?>
-
+<custom_inject_during_build "../_CommonSiteElements.part.html" />
 <div id="Content">
 
 <h2>Error 400 - Bad Request</h2>
@@ -18,6 +17,6 @@
 
 </div>
 
-<?php include '../_Footer.php'; ?>
+<custom_inject_during_build "../_Footer.part.html" />
 </body>
 </html>
