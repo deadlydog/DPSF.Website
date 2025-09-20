@@ -18,8 +18,6 @@
     </div> <!-- Close the MenuAndContent div from _CommonSiteElements.php -->
 </div> <!-- Close the ContentWrapper div from _CommonSiteElements.php -->
 
-<?php //include '_SideColumn.php'; ?>
-
 <!-- Add the User Quote li items to the DOM, now that the DOM is fully created -->
 <script type="text/javascript">
 	gDPSF.InitializeUserQuotes();
