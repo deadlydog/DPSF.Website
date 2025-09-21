@@ -13,7 +13,11 @@
         </div>
 
         <div id="Footer">
-            This page was last updated on <?php print(date("M j, Y", getlastmod())); ?>
+            This page was last updated on <span id="PageLastUpdatedDate" />.
+						<script type="text/javascript">
+							var lastModDate = new Date(document.lastModified);
+							document.getElementById("PageLastUpdatedDate").innerHTML = lastModDate.toLocaleDateString();
+						</script>
         </div>
     </div> <!-- Close the MenuAndContent div from _CommonSiteElements.php -->
 </div> <!-- Close the ContentWrapper div from _CommonSiteElements.php -->
