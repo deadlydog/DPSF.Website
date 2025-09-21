@@ -1,12 +1,12 @@
-<?php include "_HTMLPreHead.php"; // Includes the HTML version to use ?>
+<custom_inject_during_build "./_HTMLPreHead.part.html" />
 <title>DPSF Change Log (Dynamic Particle System Framework)</title>
 <meta name="description" content="DPSF (Dynamic Particle System Framework) Change Log. View the changes made to DPSF from version to version." />
 <meta name="keywords" content="DPSF, Dynamic, Particle, Particle System, Particle Systems, Framework, XNA, C#, Custom, Flexible, API, Library, Tool, Free, Flexible, Engine, Particle Engine, Particle Engines, Effect, Particle Effect, Particle Effects, Code, Change, Log, Change Log, Version, History" />
-<?php include "_HTMLHead.php"; // Includes the Head information ?>
+<custom_inject_during_build "./_HTMLHead.part.html" />
 </head>
 
 <body>
-<?php include '_CommonSiteElements.php'; ?>
+<custom_inject_during_build "./_CommonSiteElements.part.html" />
 
 <div id="Content">
 <h1>Change Log</h1>
@@ -220,7 +220,8 @@
 	<li>Added a FPSLogger class to the FPS.cs file included in the DPSF Demo project. This allows the FPS to be logged to a file.</li>
 	<li>Added overloaded Initialize...ParticleSystem() functions to allow a Texture2D to be specified instead of a texture asset name string.</li>
 	<li>Changed the Magnets class, adding MagnetPoint, MagnetLine, MagnetLineSegment, and MagnetPlane classes.</li>
-	<li>Added DefaultSpriteTextureCoordinatesParticleSystem and DefaultTexturedQuadTextureCoordinatesParticleSystem classes for when texture 
+	<li>Added DefaultSpriteTextureCoordinatesParticleSystem and DefaultTexturedQuadTextureCoordinatesParticleSystem classes
+		for when texture
 	coordinates are required (not for animated particles), as well as the associated Particle classes and Particle Vertex structs.</li>
 	<li>Added DefaultPointSpriteTextureCoordinatesParticleSystem, DefaultPointSpriteTextureCoordinatesNoRotationParticleSystem, and
 	DefaultPointSpriteTextureCoordinatesNoColorParticleSystem classes, as well as associated Particle classes, Particle Vertex
@@ -307,6 +308,6 @@
 
 </div>
 
-<?php include '_Footer.php'; ?>
+<custom_inject_during_build "./_Footer.part.html" />
 </body>
 </html>
