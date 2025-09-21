@@ -5,12 +5,12 @@ The following should be done on the dev DPSF website (dev.xnaparticles.com):
 These steps are performed automatically by the New DPSF Release script:
 1 - Zip up the new version of DPSF so that it's called "DPSF Installer.zip" and overwrite the existing one.
 2 - Update the "DPSFHelp" folder with the latest DPSF help files.
-3 - Copy the previous installer executable into the ArchivedDPSFVerions folder so it can be downloaded from ChangeLog.php.
+3 - Copy the previous installer executable into the ArchivedDPSFVerions folder so it can be downloaded from ChangeLog.html.
 
 These steps still need to be performed manually:
 4 - Update "RSS.xml" to announce the new version of DPSF.
-5 - Update the "ChangeLog.php" file with the new version's changes.
-6 - Update the "Download.php" file with the new version info.
+5 - Update the "ChangeLog.html" file with the new version's changes.
+6 - Update the "Download.html" file with the new version info.
 7 - Sync all of the changes over to dev.xnaparticles.com and verify everything looks good.
 8 - Update the live DPSF website (www.xnaparticles.com) using the updated dev website (dev.xnaparticles.com).
 9 - Announce the new version on Twitter and Facebook. Try and include the hashtags #XNA #GameDev #XBLIG #Xbox #indie #MonoGame
