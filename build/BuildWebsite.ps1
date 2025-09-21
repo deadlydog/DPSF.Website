@@ -27,16 +27,16 @@ process {
 	$htmlFiles | Foreach-Object {
 		[string] $htmlFilePath = $_.FullName
 		[string] $htmlFileDirectoryPath = Split-Path -Path $htmlFilePath -Parent
+		[string] $htmlFileContents = Get-Content -Path $htmlFilePath -Raw
 
 		# Example of custom inject tag: <custom_inject_during_build "./_CommonSiteElements.part.html" />
 		[regex] $customInjectRegex = [regex] '(?i)\<custom_inject_during_build\s+"(?<PartFilePath>[^"]+)"\s*\/\>'
 
 		# If a custom inject tag is found, replace it with the contents of the specified part file.
-		if ($customInjectRegex.IsMatch($htmlFilePath)) {
+		if ($customInjectRegex.IsMatch($htmlFileContents)) {
 			Write-Information "Processing custom inject tags in '$htmlFilePath'."
-			[string] $htmlFileContents = Get-Content -Path $htmlFilePath -Raw
 
-			$htmlFileContents = $customInjectRegex.Replace($htmlFileContents, {
+			[string] $newHtmlFileContents = $customInjectRegex.Replace($htmlFileContents, {
 				param ($match)
 
 				[string] $partFilePath = $match.Groups['PartFilePath'].Value
@@ -45,6 +45,8 @@ process {
 				[string] $fullPartFilePath = Join-Path -Path $htmlFileDirectoryPath -ChildPath $partFilePath -Resolve
 				return Get-Content -Path $fullPartFilePath -Raw
 			})
+
+			Set-Content -Path $htmlFilePath -Value $newHtmlFileContents -Force
 		}
 	}
 }
