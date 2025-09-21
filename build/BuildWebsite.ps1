@@ -1,6 +1,6 @@
 <#
 	.SYNOPSIS
-	Builds the website by injecting
+	Builds the website by copying all files to the output directory and transforming the HTML files containing custom inject tags.
 #>
 [CmdletBinding()]
 param (
