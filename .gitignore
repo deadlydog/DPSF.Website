@@ -1,3 +1,8 @@
+# Build default output directory and log file.
+wwwroot/
+build/*.log
+
+
 *.cache
 *.cachefile
 *.docstates
