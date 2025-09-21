@@ -52,7 +52,6 @@ process {
 }
 
 begin {
-
 	function ClearOutputDirectory {
 		param (
 			[string] $directoryPath
