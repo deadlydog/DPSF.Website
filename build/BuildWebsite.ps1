@@ -5,7 +5,7 @@
 [CmdletBinding()]
 param (
 	[string] $WebsiteRootDirectoryPath = "$PSScriptRoot/../src",
-	[string] $OutputDirectoryPath = "$PSScriptRoot/../wwwroot"
+	[string] $OutputDirectoryPath = "$PSScriptRoot/../_WebsiteBuildOutput"
 )
 
 process {

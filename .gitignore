@@ -1,5 +1,5 @@
 # Build default output directory and log file.
-wwwroot/
+_WebsiteBuildOutput/
 build/*.log
 
 

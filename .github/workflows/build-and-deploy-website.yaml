@@ -34,12 +34,12 @@ jobs:
 
       - name: Build website
         shell: pwsh
-        run: ./build/BuildWebsite.ps1 -WebsiteRootDirectoryPath ./src -OutputDirectoryPath ./wwwroot
+        run: ./build/BuildWebsite.ps1 -WebsiteRootDirectoryPath ./src -OutputDirectoryPath ./_WebsiteBuildOutput
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./wwwroot
+          path: ./_WebsiteBuildOutput
 
       - name: Deploy to GitHub Pages
         id: deployment
